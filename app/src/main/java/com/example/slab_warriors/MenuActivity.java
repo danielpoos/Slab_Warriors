@@ -1,38 +1,41 @@
 package com.example.slab_warriors;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatButton;
-
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+import com.example.slab_warriors.databinding.ActivityMenuBinding;
 
 public class MenuActivity extends AppCompatActivity {
-    private AppCompatButton playBtn, charactersBtn, settingsBtn, exitBtn;
+    private ActivityMenuBinding binding;
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    @Override protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_menu);
-        initialize();
-        playBtn.setOnClickListener(v -> {
-//TODO matchmaking
+        setContentView(binding.getRoot());
+        binding = ActivityMenuBinding.inflate(getLayoutInflater());
+        binding.play.setOnClickListener(v -> {
+            Intent toPlay = new Intent(MenuActivity.this,Playfield.class);
+            startActivity(toPlay);
+            finish();
         });
-        charactersBtn.setOnClickListener(v->{
-//TODO characters
+        /*binding.characters.setOnClickListener(v->{
+            Intent toCharacters = new Intent(MenuActivity.this,CharactersActivity.class);
+            startActivity(toCharacters);
+            finish();
+        });*/
+        binding.settings.setOnClickListener(v->{
+            Intent toSettings = new Intent(MenuActivity.this,SettingsActivity.class);
+            startActivity(toSettings);
         });
-        settingsBtn.setOnClickListener(v->{
-//TODO settings
+        binding.exit.setOnClickListener(v->{
+            AlertDialog alert;
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setMessage("Are you sure you want to quit?");
+            builder.setPositiveButton("Yes", (dialog, which) -> finish());
+            builder.setNegativeButton("No", (dialog, which) -> dialog.cancel());
+            builder.setCancelable(false);
+            alert = builder.create();
+            alert.show();
         });
-        exitBtn.setOnClickListener(v->{
-
-        });
-
-    }
-    public void initialize(){
-        playBtn = findViewById(R.id.play);
-        charactersBtn = findViewById(R.id.characters);
-        settingsBtn = findViewById(R.id.settings);
-        exitBtn = findViewById(R.id.exit);
-
     }
 }

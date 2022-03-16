@@ -1,6 +1,48 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_15" project-jdk-name="openjdk-17" project-jdk-type="JavaSDK">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/Users/Daniel/StudioProjects/Slab_Warriors/app/src/main/res/drawable/ic_dashboard_black_24dp.xml" value="0.2215" />
+        <entry key="..\:/Users/Daniel/StudioProjects/Slab_Warriors/app/src/main/res/drawable/ic_home_black_24dp.xml" value="0.2215" />
+        <entry key="..\:/Users/Daniel/StudioProjects/Slab_Warriors/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2215" />
+        <entry key="..\:/Users/Daniel/StudioProjects/Slab_Warriors/app/src/main/res/drawable/ic_menu_camera.xml" value="0.2215" />
+        <entry key="..\:/Users/Daniel/StudioProjects/Slab_Warriors/app/src/main/res/drawable/ic_menu_gallery.xml" value="0.2215" />
+        <entry key="..\:/Users/Daniel/StudioProjects/Slab_Warriors/app/src/main/res/drawable/ic_menu_slideshow.xml" value="0.2215" />
+        <entry key="..\:/Users/Daniel/StudioProjects/Slab_Warriors/app/src/main/res/drawable/ic_notifications_black_24dp.xml" value="0.2215" />
+        <entry key="..\:/Users/Daniel/StudioProjects/Slab_Warriors/app/src/main/res/drawable/side_nav_bar.xml" value="0.2215" />
+        <entry key="..\:/Users/Daniel/StudioProjects/Slab_Warriors/app/src/main/res/layout/activity_characters.xml" value="0.26902173913043476" />
+        <entry key="..\:/Users/Daniel/StudioProjects/Slab_Warriors/app/src/main/res/layout/activity_loading1.xml" value="0.26902173913043476" />
+        <entry key="..\:/Users/Daniel/StudioProjects/Slab_Warriors/app/src/main/res/layout/activity_main.xml" value="0.26902173913043476" />
+        <entry key="..\:/Users/Daniel/StudioProjects/Slab_Warriors/app/src/main/res/layout/activity_main2.xml" value="0.22871376811594202" />
+        <entry key="..\:/Users/Daniel/StudioProjects/Slab_Warriors/app/src/main/res/layout/activity_menu.xml" value="0.271286231884058" />
+        <entry key="..\:/Users/Daniel/StudioProjects/Slab_Warriors/app/src/main/res/layout/activity_playfield.xml" value="0.22871376811594202" />
+        <entry key="..\:/Users/Daniel/StudioProjects/Slab_Warriors/app/src/main/res/layout/app_bar_characters.xml" value="0.271286231884058" />
+        <entry key="..\:/Users/Daniel/StudioProjects/Slab_Warriors/app/src/main/res/layout/content_characters.xml" value="0.271286231884058" />
+        <entry key="..\:/Users/Daniel/StudioProjects/Slab_Warriors/app/src/main/res/layout/content_main.xml" value="0.22871376811594202" />
+        <entry key="..\:/Users/Daniel/StudioProjects/Slab_Warriors/app/src/main/res/layout/fragment_card.xml" value="0.264" />
+        <entry key="..\:/Users/Daniel/StudioProjects/Slab_Warriors/app/src/main/res/layout/fragment_enemy.xml" value="0.264" />
+        <entry key="..\:/Users/Daniel/StudioProjects/Slab_Warriors/app/src/main/res/layout/fragment_field.xml" value="0.264" />
+        <entry key="..\:/Users/Daniel/StudioProjects/Slab_Warriors/app/src/main/res/layout/fragment_fighter.xml" value="0.264" />
+        <entry key="..\:/Users/Daniel/StudioProjects/Slab_Warriors/app/src/main/res/layout/fragment_first.xml" value="0.22871376811594202" />
+        <entry key="..\:/Users/Daniel/StudioProjects/Slab_Warriors/app/src/main/res/layout/fragment_gallery.xml" value="0.271286231884058" />
+        <entry key="..\:/Users/Daniel/StudioProjects/Slab_Warriors/app/src/main/res/layout/fragment_home.xml" value="0.271286231884058" />
+        <entry key="..\:/Users/Daniel/StudioProjects/Slab_Warriors/app/src/main/res/layout/fragment_login.xml" value="0.22871376811594202" />
+        <entry key="..\:/Users/Daniel/StudioProjects/Slab_Warriors/app/src/main/res/layout/fragment_second.xml" value="0.22871376811594202" />
+        <entry key="..\:/Users/Daniel/StudioProjects/Slab_Warriors/app/src/main/res/layout/fragment_select.xml" value="0.259963768115942" />
+        <entry key="..\:/Users/Daniel/StudioProjects/Slab_Warriors/app/src/main/res/layout/fragment_slideshow.xml" value="0.271286231884058" />
+        <entry key="..\:/Users/Daniel/StudioProjects/Slab_Warriors/app/src/main/res/layout/nav_header_characters.xml" value="0.271286231884058" />
+        <entry key="..\:/Users/Daniel/StudioProjects/Slab_Warriors/app/src/main/res/layout/settings_activity.xml" value="0.26902173913043476" />
+        <entry key="..\:/Users/Daniel/StudioProjects/Slab_Warriors/app/src/main/res/menu/activity_main_drawer.xml" value="0.1265625" />
+        <entry key="..\:/Users/Daniel/StudioProjects/Slab_Warriors/app/src/main/res/menu/bottom_nav_menu.xml" value="0.264" />
+        <entry key="..\:/Users/Daniel/StudioProjects/Slab_Warriors/app/src/main/res/menu/characters.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/Daniel/StudioProjects/Slab_Warriors/app/src/main/res/menu/valami.xml" value="0.27447916666666666" />
+        <entry key="..\:/Users/Daniel/StudioProjects/Slab_Warriors/app/src/main/res/xml-v29/root_preferences.xml" value="0.22871376811594202" />
+        <entry key="..\:/Users/Daniel/StudioProjects/Slab_Warriors/app/src/main/res/xml/root_preferences.xml" value="0.264" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="openjdk-17" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
 </project>

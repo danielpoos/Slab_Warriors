@@ -4,4 +4,24 @@
     <string name="characters">Karakterek</string>
     <string name="settings">Beállítások</string>
     <string name="exit">Kilépés</string>
+    <string name="password">Jelszó</string>
+    <string name="rememberPassword">Emlékezz a jelszavamra</string>
+    <string name="name">Kijelzett név</string>
+    <string name="accounts_title">Felhasználói beállítások</string>
+    <string name="signature_title">Aláírás</string>
+    <string name="next">Harcos kiválasztása</string>
+    <string name="hello_first_fragment">Válassz harcost</string>
+    <string name="other">Egyéb beállítások</string>
+    <string name="profile_settings">Profil beállítások</string>
+    <string name="action_settings">Fiók beállítások</string>
+    <string name="email_on">Küldj értesítő e-maileket a játék  frissítésiről, híreiről</string>
+    <string name="email_off">Ne küldj e-maileket</string>
+    <string name="settings_title">Fejlett</string>
+    <string name="email_title">E-mail értesítések</string>
+    <string name="token">Tokenes belépés engedélyezése</string>
+    <string name="about">Rólunk</string>
+    <string name="title_activity_settings">Beállítások</string>
+    <string name="title_activity_playfield">Játékmező</string>
+    <string name="fab_description">Segítség</string>
+    <string name="choose">Válassz egy harcost: mindegyiknek más hatása van a csatára</string>
 </resources>

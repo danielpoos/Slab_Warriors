@@ -11,6 +11,6 @@
         android:layout_height="match_parent"
         android:id="@+id/first_sreen"
         app:srcCompat="@drawable/projekt_logo"
-        android:background="@color/white"
+        android:theme="@style/Theme.AppCompat.DayNight"
         />
 </androidx.appcompat.widget.LinearLayoutCompat>
