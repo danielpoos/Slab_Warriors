@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/SelectFragment">
+
+    <fragment
+        android:id="@+id/SelectFragment"
+        android:name="com.example.slab_warriors.fragments.SelectFragment"
+        tools:layout="@layout/fragment_select">
+
+        <action
+            android:id="@+id/toTheFieldFragment"
+            app:destination="@id/FieldFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/FieldFragment"
+        android:name="com.example.slab_warriors.fragments.FieldFragment"
+        tools:layout="@layout/fragment_field">
+    </fragment>
+</navigation>

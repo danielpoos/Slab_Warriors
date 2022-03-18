@@ -2,4 +2,5 @@
 Mobile version of our game
 
 Project update: updated the java, xml and gradle files
-Added classes for the game
+Added api files
+Added two activities and some fragments, now the application is about to take a shape
