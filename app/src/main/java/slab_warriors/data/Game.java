@@ -1,4 +1,4 @@
-package com.example.slab_warriors.data;
+package slab_warriors.data;
 
 public class Game {
     private String id;

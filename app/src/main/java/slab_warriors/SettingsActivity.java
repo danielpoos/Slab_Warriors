@@ -1,10 +1,10 @@
-package com.example.slab_warriors;
+package slab_warriors;
 
 import android.os.Bundle;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceFragmentCompat;
-import com.example.slab_warriors.databinding.SettingsActivityBinding;
+import slab_warriors.databinding.SettingsActivityBinding;
 
 public class SettingsActivity extends AppCompatActivity {
     private SettingsActivityBinding binding;

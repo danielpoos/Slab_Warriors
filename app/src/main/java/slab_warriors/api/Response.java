@@ -1,4 +1,4 @@
-package com.example.slab_warriors.api;
+package slab_warriors.api;
 
 public class Response {
     int responseCode;

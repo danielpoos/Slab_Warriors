@@ -1,4 +1,4 @@
-package com.example.slab_warriors.data;
+package slab_warriors.data;
 
 public class Match {
     private User player;
@@ -48,4 +48,16 @@ public class Match {
     /*
         create game + deck
      */
+    public void matchMade() {
+        boolean win = this.enemy.getHp() < 1 ^ this.fighter.getHp() < 1;
+        while (win) {
+            newRound();
+        }
+        if (win) {
+            int lvl = this.player.getLevel();
+            this.player.setLevel(lvl++);
+        }
+    }
+    //one round
+    private void newRound() {}
 }

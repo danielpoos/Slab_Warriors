@@ -1,4 +1,4 @@
-package com.example.slab_warriors.fragments;
+package slab_warriors.fragments;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
-import com.example.slab_warriors.databinding.FragmentFieldBinding;
+import slab_warriors.databinding.FragmentFieldBinding;
 
 public class FieldFragment extends Fragment {
     private FragmentFieldBinding binding;

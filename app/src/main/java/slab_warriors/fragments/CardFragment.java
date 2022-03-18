@@ -1,17 +1,17 @@
-package com.example.slab_warriors.fragments;
+package slab_warriors.fragments;
 
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.example.slab_warriors.databinding.FragmentFighterBinding;
+import slab_warriors.databinding.FragmentCardBinding;
 
-public class FighterFragment extends Fragment {
-    private FragmentFighterBinding binding;
-    public FighterFragment() {}
+public class CardFragment extends Fragment {
+    private FragmentCardBinding binding;
+    public CardFragment() {}
     @Override public View onCreateView(LayoutInflater inflater, ViewGroup container,Bundle savedInstanceState) {
-        binding = FragmentFighterBinding.inflate(inflater, container, false);
+        binding = FragmentCardBinding.inflate(inflater, container, false);
         return binding.getRoot();
     }
     @Override public void onDestroyView() {
@@ -21,4 +21,6 @@ public class FighterFragment extends Fragment {
     @Override public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
     }
+
+
 }

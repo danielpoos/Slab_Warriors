@@ -1,4 +1,4 @@
-package com.example.slab_warriors.data;
+package slab_warriors.data;
 
 import java.util.List;
 

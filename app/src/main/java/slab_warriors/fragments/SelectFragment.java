@@ -1,4 +1,4 @@
-package com.example.slab_warriors.fragments;
+package slab_warriors.fragments;
 
 import android.graphics.Color;
 import android.os.Bundle;
@@ -11,10 +11,10 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
-import com.example.slab_warriors.R;
-import com.example.slab_warriors.data.Fighter;
-import com.example.slab_warriors.databinding.FragmentFighterBinding;
-import com.example.slab_warriors.databinding.FragmentSelectBinding;
+import slab_warriors.R;
+import slab_warriors.data.Fighter;
+import slab_warriors.databinding.FragmentFighterBinding;
+import slab_warriors.databinding.FragmentSelectBinding;
 import com.google.android.material.snackbar.Snackbar;
 
 import java.util.List;

@@ -1,11 +1,10 @@
-package com.example.slab_warriors.api;
+package slab_warriors.api;
 
 import android.os.AsyncTask;
 import android.util.Log;
-import com.example.slab_warriors.data.User;
+import slab_warriors.data.User;
 import com.google.gson.Gson;
 import java.io.IOException;
-import java.util.Collection;
 
 public class RequestTask extends AsyncTask<Void, Void, Response> {
     private String requestType;

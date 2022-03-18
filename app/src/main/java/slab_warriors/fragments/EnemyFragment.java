@@ -1,11 +1,11 @@
-package com.example.slab_warriors.fragments;
+package slab_warriors.fragments;
 
 import android.os.Bundle;
 import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import com.example.slab_warriors.databinding.FragmentEnemyBinding;
+import slab_warriors.databinding.FragmentEnemyBinding;
 
 public class EnemyFragment extends Fragment {
     private FragmentEnemyBinding binding;

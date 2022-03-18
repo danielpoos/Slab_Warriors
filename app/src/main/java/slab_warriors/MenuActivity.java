@@ -1,10 +1,10 @@
-package com.example.slab_warriors;
+package slab_warriors;
 
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import com.example.slab_warriors.databinding.ActivityMenuBinding;
+import slab_warriors.databinding.ActivityMenuBinding;
 
 public class MenuActivity extends AppCompatActivity {
     private ActivityMenuBinding binding;

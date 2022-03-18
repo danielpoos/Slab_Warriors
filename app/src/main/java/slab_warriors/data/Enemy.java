@@ -1,11 +1,11 @@
-package com.example.slab_warriors.data;
+package slab_warriors.data;
 
-public class Card {
+public class Enemy {
     private Integer id;
     private String name, type, details;
-    private int level, attack, hp, summonCost;
+    private int level, attack, hp;
 
-    public Card(Integer id, String name, String type, String details, int level, int attack, int hp, int summonCost) {
+    public Enemy(Integer id, String name, String type, String details, int level, int attack, int hp) {
         this.id = id;
         this.name = name;
         this.type = type;
@@ -13,16 +13,14 @@ public class Card {
         this.level = level;
         this.attack = attack;
         this.hp = hp;
-        this.summonCost = summonCost;
     }
-    public Card(String name, String type, String details, int level, int attack, int hp, int summonCost) {
+    public Enemy(String name, String type, String details, int level, int attack, int hp) {
         this.name = name;
         this.type = type;
         this.details = details;
         this.level = level;
         this.attack = attack;
         this.hp = hp;
-        this.summonCost = summonCost;
     }
     public Integer getId() {
         return id;
@@ -62,11 +60,5 @@ public class Card {
     }
     public void setHp(int hp) {
         this.hp = hp;
-    }
-    public int getSummonCost() {
-        return summonCost;
-    }
-    public void setSummonCost(int summonCost) {
-        this.summonCost = summonCost;
     }
 }

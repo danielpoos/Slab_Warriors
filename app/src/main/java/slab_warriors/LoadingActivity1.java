@@ -1,4 +1,4 @@
-package com.example.slab_warriors;
+package slab_warriors;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;

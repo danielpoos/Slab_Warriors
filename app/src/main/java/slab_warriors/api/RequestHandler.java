@@ -1,4 +1,4 @@
-package com.example.slab_warriors.api;
+package slab_warriors.api;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;

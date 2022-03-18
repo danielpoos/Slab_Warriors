@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/SelectFragment"
-        android:name="com.example.slab_warriors.fragments.SelectFragment"
+        android:name="slab_warriors.fragments.SelectFragment"
         tools:layout="@layout/fragment_select">
 
         <action
@@ -16,7 +16,7 @@
     </fragment>
     <fragment
         android:id="@+id/FieldFragment"
-        android:name="com.example.slab_warriors.fragments.FieldFragment"
+        android:name="slab_warriors.fragments.FieldFragment"
         tools:layout="@layout/fragment_field">
     </fragment>
 </navigation>

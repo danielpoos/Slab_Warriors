@@ -1,11 +1,11 @@
-package com.example.slab_warriors.data;
+package slab_warriors.data;
 
-public class Enemy {
+public class Fighter {
     private Integer id;
     private String name, type, details;
     private int level, attack, hp;
 
-    public Enemy(Integer id, String name, String type, String details, int level, int attack, int hp) {
+    public Fighter(Integer id, String name, String type, String details, int level, int attack, int hp) {
         this.id = id;
         this.name = name;
         this.type = type;
@@ -14,7 +14,7 @@ public class Enemy {
         this.attack = attack;
         this.hp = hp;
     }
-    public Enemy(String name, String type, String details, int level, int attack, int hp) {
+    public Fighter(String name, String type, String details, int level, int attack, int hp) {
         this.name = name;
         this.type = type;
         this.details = details;

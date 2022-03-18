@@ -1,4 +1,4 @@
-package com.example.slab_warriors;
+package slab_warriors;
 
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
@@ -6,7 +6,7 @@ import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
-import com.example.slab_warriors.databinding.ActivityPlayfieldBinding;
+import slab_warriors.databinding.ActivityPlayfieldBinding;
 
 public class Playfield extends AppCompatActivity {
     private AppBarConfiguration appBarConfiguration;
