@@ -10,8 +10,8 @@ public class SettingsActivity extends AppCompatActivity {
     private SettingsActivityBinding binding;
     @Override protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(binding.getRoot());
         binding = SettingsActivityBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
         if (savedInstanceState == null) {
             getSupportFragmentManager()
                     .beginTransaction()

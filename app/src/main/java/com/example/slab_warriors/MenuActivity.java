@@ -10,9 +10,9 @@ public class MenuActivity extends AppCompatActivity {
     private ActivityMenuBinding binding;
 
     @Override protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(binding.getRoot());
+        super.onCreate(savedInstanceState);;
         binding = ActivityMenuBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
         binding.play.setOnClickListener(v -> {
             Intent toPlay = new Intent(MenuActivity.this,Playfield.class);
             startActivity(toPlay);

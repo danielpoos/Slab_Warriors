@@ -35,8 +35,8 @@ public class SelectFragment extends Fragment {
         binding.fab.setOnClickListener(v -> Snackbar.make(v, R.string.choose, Snackbar.LENGTH_LONG)
                 .setAction("Action", null).show());
         //Todo listview -> recyclerview
-        binding.fighterListView.getFocusedChild().setOnClickListener(view2 -> binding.fighterListView.getFocusedChild().setBackgroundColor(Color.CYAN));
-        binding.fighterListView.setAdapter((ListAdapter) new FighterFragment());
+        //binding.fighterListView.getFocusedChild().setOnClickListener(view2 -> binding.fighterListView.getFocusedChild().setBackgroundColor(Color.CYAN));
+        //binding.fighterListView.setAdapter((ListAdapter) new FighterFragment());
     }
 
     @Override public void onDestroyView() {
