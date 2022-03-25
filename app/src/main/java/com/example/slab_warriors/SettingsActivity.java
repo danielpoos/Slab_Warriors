@@ -1,7 +1,6 @@
 package com.example.slab_warriors;
 
 import android.os.Bundle;
-import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.preference.PreferenceFragmentCompat;
 import com.example.slab_warriors.databinding.SettingsActivityBinding;
@@ -12,15 +11,12 @@ public class SettingsActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = SettingsActivityBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        SettingsFragment settingsFragment = new SettingsFragment();
         if (savedInstanceState == null) {
             getSupportFragmentManager()
                     .beginTransaction()
-                    .replace(binding.settings.getId(), new SettingsFragment())
+                    .replace(binding.settings.getId(), settingsFragment)
                     .commit();
-        }
-        ActionBar actionBar = getSupportActionBar();
-        if (actionBar != null) {
-            actionBar.setDisplayHomeAsUpEnabled(true);
         }
     }
 

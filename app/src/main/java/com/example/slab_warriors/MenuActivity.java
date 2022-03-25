@@ -13,16 +13,15 @@ public class MenuActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);;
         binding = ActivityMenuBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        binding.play.setOnClickListener(v -> {
+        binding.play.setOnClickListener(v->{
             Intent toPlay = new Intent(MenuActivity.this,Playfield.class);
             startActivity(toPlay);
             finish();
         });
-        /*binding.characters.setOnClickListener(v->{
+        binding.characters.setOnClickListener(v->{
             Intent toCharacters = new Intent(MenuActivity.this,CharactersActivity.class);
             startActivity(toCharacters);
-            finish();
-        });*/
+        });
         binding.settings.setOnClickListener(v->{
             Intent toSettings = new Intent(MenuActivity.this,SettingsActivity.class);
             startActivity(toSettings);

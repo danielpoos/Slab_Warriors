@@ -1,11 +1,9 @@
 package com.example.slab_warriors.api;
 
 import android.os.AsyncTask;
-import android.util.Log;
 import com.example.slab_warriors.data.User;
 import com.google.gson.Gson;
 import java.io.IOException;
-import java.util.Collection;
 
 public class RequestTask extends AsyncTask<Void, Void, Response> {
     private String requestType;
@@ -13,14 +11,17 @@ public class RequestTask extends AsyncTask<Void, Void, Response> {
     private String url;
     public Response response;
     public Runnable finalTask;
-    public RequestTask(String url, String requestType) {
-        this.requestType = requestType;
-        this.url = url;
-    }
+    public String className;
     public RequestTask(String url, String requestType, String requestParams) {
         this.requestType = requestType;
         this.requestParams = requestParams;
         this.url = url;
+    }
+    public RequestTask(String url, String requestType, String requestParams, String className) {
+        this.requestType = requestType;
+        this.requestParams = requestParams;
+        this.url = url;
+        this.className = className;
     }
     public Runnable getFinalTask() {
         return finalTask;
@@ -44,10 +45,7 @@ public class RequestTask extends AsyncTask<Void, Void, Response> {
                 case "delete":
                     response = RequestHandler.delete(url+"/"+requestParams); break;
             }
-            //TODO database address
-        } catch (IOException e) {
-            Log.d("AAAAA", e.toString());
-        }
+        } catch (IOException e) {e.printStackTrace();   }
         this.response = response;
         return response;
     }
@@ -64,7 +62,7 @@ public class RequestTask extends AsyncTask<Void, Void, Response> {
                 /*userList.add(newUser);*/break;
             case "put":
                 User changeUser = converter.fromJson(response.getContent(),User.class);
-                /*userList.add(changeUser);*/break;
+                /*userList.replaceAll(currentUser -> currentUser.getId() == changeUser.getId() ? changeUser : currentUser);*/break;
             case "delete":
                 int id = Integer.parseInt(requestParams);
                 /*userList.removeIf(u -> u.getId() == id);*/break;

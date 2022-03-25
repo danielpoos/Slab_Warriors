@@ -16,14 +16,14 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-    <ListView
+    <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="220dp"
         app:layout_constraintBottom_toTopOf="@+id/button_first"
         app:layout_constraintTop_toBottomOf="@id/textview_first"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:id="@+id/fighterListView"
+        android:id="@+id/fighteRView"
         android:smoothScrollbar="true"
         tools:listitem="@layout/fragment_fighter"/>
     <!-- selected displays the details -->
