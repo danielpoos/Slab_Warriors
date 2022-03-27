@@ -1,5 +1,9 @@
 package com.example.slab_warriors.data;
 
+import com.google.gson.Gson;
+import java.util.Arrays;
+import java.util.List;
+
 public class Fighter {
     private Integer id;
     private String name, type, details;
@@ -60,5 +64,10 @@ public class Fighter {
     }
     public void setHp(int hp) {
         this.hp = hp;
+    }
+    public static List<Fighter> getFighters(String in){
+        Gson converter = new Gson();
+        Fighter[] fighters = converter.fromJson(in,Fighter[].class);
+        return Arrays.asList(fighters);
     }
 }
