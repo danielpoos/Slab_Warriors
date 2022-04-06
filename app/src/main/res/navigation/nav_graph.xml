@@ -18,5 +18,14 @@
         android:id="@+id/FieldFragment"
         android:name="com.example.slab_warriors.fragments.FieldFragment"
         tools:layout="@layout/fragment_field">
+
+        <action
+            android:id="@+id/toTheEndgameFragment"
+            app:destination="@id/EndgameFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/EndgameFragment"
+        android:name="com.example.slab_warriors.fragments.EndgameFragment"
+        tools:layout="@layout/fragment_endgame">
     </fragment>
 </navigation>

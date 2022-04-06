@@ -13,30 +13,39 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/hello_first_fragment"
+        android:textSize="28sp"
         app:layout_constraintBottom_toTopOf="@id/fighteRView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
     <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/fighteRView"
         android:layout_width="match_parent"
-        android:layout_height="220dp"
-        app:layout_constraintBottom_toTopOf="@+id/button_first"
+        android:layout_height="240dp"
+        app:layout_constraintBottom_toTopOf="@+id/button_select"
         app:layout_constraintTop_toBottomOf="@id/textview_first"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:id="@+id/fighteRView"
         android:smoothScrollbar="true"
-        tools:listitem="@layout/fragment_fighter"/>
-    <!-- selected displays the details -->
+        android:padding="10dp"/>
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/button_first"
+        android:id="@+id/button_select"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/next"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/button_cancel"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/fighteRView" />
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button_cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/cancel"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/button_select" />
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"

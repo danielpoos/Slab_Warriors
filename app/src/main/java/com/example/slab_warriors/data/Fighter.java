@@ -1,5 +1,6 @@
 package com.example.slab_warriors.data;
 
+import androidx.annotation.NonNull;
 import com.google.gson.Gson;
 import java.util.Arrays;
 import java.util.List;
@@ -69,5 +70,12 @@ public class Fighter {
         Gson converter = new Gson();
         Fighter[] fighters = converter.fromJson(in,Fighter[].class);
         return Arrays.asList(fighters);
+    }
+    @NonNull @Override public String toString() {
+        return id + ";" + name + ";" + type + ";" + details + ";" + level + ";" + attack + ";" + hp;
+    }
+    public static Fighter toFighter(String fighterString){
+        String[] data = fighterString.split(";");
+        return new Fighter(Integer.valueOf(data[0]),data[1],data[2],data[3],Integer.parseInt(data[4]),Integer.parseInt(data[5]),Integer.parseInt(data[6]));
     }
 }

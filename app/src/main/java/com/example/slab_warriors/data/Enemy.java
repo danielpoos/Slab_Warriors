@@ -1,9 +1,15 @@
 package com.example.slab_warriors.data;
 
+import com.google.gson.Gson;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Random;
+
 public class Enemy {
     private Integer id;
     private String name, type, details;
     private int level, attack, hp;
+    private static List<Enemy> enemyList;
 
     public Enemy(Integer id, String name, String type, String details, int level, int attack, int hp) {
         this.id = id;
@@ -60,5 +66,20 @@ public class Enemy {
     }
     public void setHp(int hp) {
         this.hp = hp;
+    }
+    public static List<Enemy> getEnemies(String in){
+        Gson converter = new Gson();
+        Enemy[] enemies = converter.fromJson(in,Enemy[].class);
+        enemyList = Arrays.asList(enemies);
+        return enemyList;
+    }
+    public static Enemy getRandomEnemy(int level){
+        if (level < 0 || enemyList == null) return new Enemy("No Name", "No class", "No details", 0,0,0);
+        Random r = new Random();
+        Enemy random = enemyList.get(r.nextInt(enemyList.size()));
+        random.setLevel(level);
+        random.setHp(random.getHp() + random.getHp() * level / 10);
+        random.setAttack(random.getAttack() + random.getAttack() * level / 10);
+        return random;
     }
 }

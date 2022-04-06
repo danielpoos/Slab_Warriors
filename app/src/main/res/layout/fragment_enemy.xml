@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="300dp"
+    android:backgroundTint="@color/no_color"
     tools:context=".fragments.EnemyFragment">
     <RelativeLayout
         android:id="@+id/relativeEnemyLayout"
@@ -19,6 +20,11 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/enemyImage"/>
+        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:id="@+id/enemyHealth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/enemyImage"/>
     </RelativeLayout>
 
 </androidx.cardview.widget.CardView>
