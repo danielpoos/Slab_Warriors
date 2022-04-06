@@ -24,4 +24,18 @@
     <string name="title_activity_playfield">Játékmező</string>
     <string name="fab_description">Segítség</string>
     <string name="choose">Válassz egy harcost: mindegyiknek más hatása van a csatára</string>
+    <string name="no_selected">Nincs kiválasztott harcos</string>
+    <string name="about_us">A weboldalra</string>
+    <string name="cancel">Mégse</string>
+    <string name="ok">Jutalom begyűjtése</string>
+    <string name="win">Gratulálunk, nyertél!</string>
+    <string name="lose">Vesztettél, de a következőben nyerhetsz!</string>
+    <string name="cards">Kártyák</string>
+    <string name="fighters">Harcosok</string>
+    <string name="enemies">Ellenfelek</string>
+    <string name="no_item">Nincs kártya a mezőn</string>
+    <string name="save">Mentés</string>
+    <string name="earned">"Szerzett tapasztalatpont: "</string>
+    <string name="xp">tp</string>
+    <string name="level">", Szint "</string>
 </resources>
