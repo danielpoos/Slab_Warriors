@@ -15,12 +15,12 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardHolder>{
     public Context context;
     public List<Card> cards;
     public int cardPosition = -1;
+    public boolean selected = false;
     public CardAdapter(Context context,List<Card> cards) {
         this.context = context;
         this.cards = cards;
     }
-    @NonNull
-    @Override public CardAdapter.CardHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+    @NonNull @Override public CardAdapter.CardHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(context).inflate(R.layout.fragment_fighter,viewGroup,false);
         return new CardAdapter.CardHolder(view);
     }
@@ -30,7 +30,11 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardHolder>{
         cardHolder.name.setText(sir.getName());
         cardHolder.attack.setText(String.valueOf(sir.getAttack()));
         cardHolder.health.setText(String.valueOf(sir.getHp()));
-        cardHolder.itemView.setOnClickListener(v -> cardPosition = cardHolder.getAdapterPosition());
+        cardHolder.itemView.setOnClickListener(v -> {
+            selected = !selected;
+            if (selected) cardPosition = cardHolder.getAdapterPosition();
+            else cardPosition = -1;
+        });
     }
     @Override public int getItemCount() {
         return cards.size();

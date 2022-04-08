@@ -9,12 +9,14 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.slab_warriors.R;
 import com.example.slab_warriors.data.Fighter;
+import com.google.android.material.snackbar.Snackbar;
 import java.util.List;
 
 public class FighterAdapter extends RecyclerView.Adapter<FighterAdapter.FighterHolder>{
     public Context context;
     public List<Fighter> fighters;
     public int fighterPosition = -1;
+    public boolean selected = false;
     public FighterAdapter(Context context,List<Fighter> fighters) {
         this.context = context;
         this.fighters = fighters;
@@ -29,7 +31,13 @@ public class FighterAdapter extends RecyclerView.Adapter<FighterAdapter.FighterH
         fighterHolder.name.setText(sir.getName());
         fighterHolder.attack.setText(String.valueOf(sir.getAttack()));
         fighterHolder.health.setText(String.valueOf(sir.getHp()));
-        fighterHolder.itemView.setOnClickListener(v -> fighterPosition = fighterHolder.getAdapterPosition());
+        fighterHolder.itemView.setOnClickListener(v -> {
+            selected = !selected;
+            if (selected) {
+                fighterPosition = fighterHolder.getAdapterPosition();
+                Snackbar.make(v,fighters.get(fighterPosition).getDetails(), Snackbar.LENGTH_LONG).show();
+            }else fighterPosition = -1;
+        });
     }
     @Override public int getItemCount() {
         return fighters.size();
