@@ -1,12 +1,16 @@
 package com.example.slab_warriors.data;
 
+import com.google.gson.Gson;
+import java.util.Arrays;
+
 public class User {
     private Integer id;
     private String username;
     private String email;
     private final String accountNumber;
     private int level, fighterCount, cardCount;
-    private boolean admin, banned;
+    private int admin, banned;
+    public static User loggedInUser;
     public Integer getId() {
         return id;
     }
@@ -44,12 +48,18 @@ public class User {
         this.cardCount = cardCount;
     }
     public boolean isAdmin() {
-        return admin;
+        return admin==1;
     }
     public boolean isBanned() {
-        return banned;
+        return banned==1;
     }
-    public User(String username, String email, String accountNumber, int level, int fighterCount, int cardCount, boolean admin, boolean banned) {
+    public void setAdmin(boolean admin) {
+        this.admin=admin?1:0;
+    }
+    public void setBanned(boolean banned){
+        this.banned=banned?1:0;
+    }
+    public User(String username, String email, String accountNumber, int level, int fighterCount, int cardCount, int admin, int banned) {
         this.username = username;
         this.email = email;
         this.accountNumber = accountNumber;
@@ -59,7 +69,7 @@ public class User {
         this.admin = admin;
         this.banned = banned;
     }
-    public User(Integer id, String username, String email, String accountNumber, int level, int fighterCount, int cardCount, boolean admin, boolean banned) {
+    public User(Integer id, String username, String email, String accountNumber, int level, int fighterCount, int cardCount, int admin, int banned) {
         this.id = id;
         this.username = username;
         this.email = email;
@@ -69,5 +79,15 @@ public class User {
         this.cardCount = cardCount;
         this.admin = admin;
         this.banned = banned;
+    }
+    public static User getUser(String in, String name){
+        Gson converter = new Gson();
+        User[] users = converter.fromJson(in,User[].class);
+        boolean present = Arrays.stream(users).anyMatch(u -> u.getUsername().equals(name));
+        if (present) {
+            loggedInUser = Arrays.stream(users).filter(u -> u.getUsername().equals(name)).findFirst().get();
+            return loggedInUser;
+        }
+        else return null;
     }
 }

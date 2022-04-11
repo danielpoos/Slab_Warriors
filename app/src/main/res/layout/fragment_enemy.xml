@@ -17,14 +17,19 @@
             android:textAllCaps="true"
             android:id="@+id/enemyName"/>
         <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/enemyImage"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/enemyImage"/>
-        <com.google.android.material.progressindicator.LinearProgressIndicator
+            android:layout_height="wrap_content" />
+        <ProgressBar
             android:id="@+id/enemyHealth"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/enemyImage"/>
+            style="@android:style/Widget.ProgressBar.Horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:layout_below="@id/enemyImage"
+            android:layout_marginTop="270dp"
+            android:indeterminateTint="@color/orange"
+            android:max="100"
+            android:progress="100"
+            android:progressTint="@color/red" />
     </RelativeLayout>
-
 </androidx.cardview.widget.CardView>

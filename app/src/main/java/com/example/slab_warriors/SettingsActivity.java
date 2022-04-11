@@ -14,6 +14,7 @@ public class SettingsActivity extends AppCompatActivity {
     private SharedPreferences sharedPref;
     private SharedPreferences.Editor editor;
     private final Uri webpageUrl = Uri.parse("https://www.github.com/TotpalIstvan/SlabWarriorsFrontend");
+
     @Override protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = ActivitySettingsBinding.inflate(getLayoutInflater());
@@ -50,9 +51,22 @@ public class SettingsActivity extends AppCompatActivity {
         binding.aboutSettings.setOnClickListener(v->{
             if (binding.toTheWebpage.getVisibility() == View.VISIBLE){
                 binding.toTheWebpage.setVisibility(View.GONE);
+                binding.rules.setVisibility(View.GONE);
             }
             else{
                 binding.toTheWebpage.setVisibility(View.VISIBLE);
+                binding.rules.setVisibility(View.VISIBLE);
+            }
+        });
+        binding.toTheWebpage.setOnClickListener(v-> startActivity(new Intent(Intent.ACTION_VIEW, webpageUrl)));
+        binding.rules.setOnClickListener(v-> {
+            if (binding.allRules.getVisibility() == View.VISIBLE){
+                binding.allRules.setVisibility(View.GONE);
+                binding.allSettings.setVisibility(View.VISIBLE);
+            }
+            else{
+                binding.allRules.setVisibility(View.VISIBLE);
+                binding.allSettings.setVisibility(View.GONE);
             }
         });
         binding.save.setOnClickListener(v->{
@@ -64,8 +78,15 @@ public class SettingsActivity extends AppCompatActivity {
             editor.putBoolean("token", binding.token.isChecked());
             editor.commit();
         });
-        binding.toTheWebpage.setOnClickListener(v-> {
-            startActivity(new Intent(Intent.ACTION_VIEW, webpageUrl));
-        });
+    }
+    @Override public void onBackPressed() {
+        super.onBackPressed();
+        sharedPref = getSharedPreferences("settings", Context.MODE_PRIVATE);
+        editor = sharedPref.edit();
+        editor.putString("name", binding.displayedName.getText().toString());
+        editor.putBoolean("remember", binding.rememberMe.isChecked());
+        editor.putBoolean("email", binding.email.isChecked());
+        editor.putBoolean("token", binding.token.isChecked());
+        editor.commit();
     }
 }

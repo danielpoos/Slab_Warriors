@@ -17,6 +17,7 @@ import com.example.slab_warriors.R;
 import com.example.slab_warriors.adapters.FighterAdapter;
 import com.example.slab_warriors.api.RequestTask;
 import com.example.slab_warriors.data.Fighter;
+import com.example.slab_warriors.data.User;
 import com.example.slab_warriors.databinding.FragmentSelectBinding;
 import com.google.android.material.snackbar.Snackbar;
 import java.util.ArrayList;
@@ -26,9 +27,9 @@ public class SelectFragment extends Fragment{
     public FragmentSelectBinding binding;
     private FighterAdapter fighterAdapter;
     private List<Fighter> fighterList;
-    private Toast details;
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor sharedEditor;
+    private User currentUser;
     private final String url = "http://192.168.1.94:8000/api/fighters";
     //private final String url = "http://10.4.18.17:8000/api/fighters";
     @Override public View onCreateView(LayoutInflater inflater,ViewGroup container,Bundle savedInstanceState) {
@@ -43,6 +44,7 @@ public class SelectFragment extends Fragment{
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         binding.fighteRView.setLayoutManager(layoutManager);
+        currentUser = User.loggedInUser;
         RequestTask task = new RequestTask(url,"get");
         task.execute();
         task.setFinalTask(() -> {
@@ -53,7 +55,7 @@ public class SelectFragment extends Fragment{
         });
         binding.buttonSelect.setOnClickListener(view1 -> {
             if(fighterAdapter.fighterPosition == -1 || fighterList.size() == 0){
-                Toast.makeText(this.getContext(), R.string.no_selected, Toast.LENGTH_SHORT).show();
+                Toast.makeText(this.getContext(), R.string.no_selected_fighter, Toast.LENGTH_SHORT).show();
             }else {
                 Fighter currentFighter = fighterList.get(fighterAdapter.fighterPosition);
                 sharedPreferences = getActivity().getSharedPreferences("fighter", Context.MODE_PRIVATE);

@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.slab_warriors.R;
 import com.example.slab_warriors.data.Card;
+import com.google.android.material.snackbar.Snackbar;
 import java.util.List;
 
 public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardHolder>{
@@ -21,7 +22,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardHolder>{
         this.cards = cards;
     }
     @NonNull @Override public CardAdapter.CardHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(context).inflate(R.layout.fragment_fighter,viewGroup,false);
+        View view = LayoutInflater.from(context).inflate(R.layout.fragment_card,viewGroup,false);
         return new CardAdapter.CardHolder(view);
     }
     @Override public void onBindViewHolder(@NonNull CardAdapter.CardHolder cardHolder, int i) {
@@ -35,6 +36,24 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardHolder>{
             if (selected) cardPosition = cardHolder.getAdapterPosition();
             else cardPosition = -1;
         });
+        cardHolder.itemView.setOnLongClickListener(v->{
+            cardPosition = cardHolder.getAdapterPosition();
+            Snackbar.make(v,cards.get(cardPosition).getDetails(), Snackbar.LENGTH_SHORT).show();
+            cardPosition = -1;
+            return false;
+        });
+    }
+    public void removeCard(){
+        //cards.remove(cardPosition);
+        notifyItemRemoved(cardPosition);
+        notifyItemRangeChanged(cardPosition,cards.size());
+        selected = false;
+    }
+    public void addCard(Card card){
+        selected = false;
+        cards.add(card);
+        notifyItemInserted(cardPosition);
+        notifyItemRangeChanged(cardPosition,cards.size());
     }
     @Override public int getItemCount() {
         return cards.size();
@@ -43,9 +62,9 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardHolder>{
         TextView name, attack, health;
         public CardHolder(@NonNull View item) {
             super(item);
-            name = item.findViewById(R.id.fighterName);
-            attack = item.findViewById(R.id.fighterAttack);
-            health = item.findViewById(R.id.fighterHealth);
+            name = item.findViewById(R.id.cardName);
+            attack = item.findViewById(R.id.cardAttack);
+            health = item.findViewById(R.id.cardHealth);
         }
     }
 }

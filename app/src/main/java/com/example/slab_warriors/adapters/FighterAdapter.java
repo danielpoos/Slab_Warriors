@@ -35,8 +35,13 @@ public class FighterAdapter extends RecyclerView.Adapter<FighterAdapter.FighterH
             selected = !selected;
             if (selected) {
                 fighterPosition = fighterHolder.getAdapterPosition();
-                Snackbar.make(v,fighters.get(fighterPosition).getDetails(), Snackbar.LENGTH_LONG).show();
             }else fighterPosition = -1;
+        });
+        fighterHolder.itemView.setOnLongClickListener(v->{
+            fighterPosition = fighterHolder.getAdapterPosition();
+            Snackbar.make(v,fighters.get(fighterPosition).getDetails(), Snackbar.LENGTH_LONG).show();
+            fighterPosition = -1;
+            return false;
         });
     }
     @Override public int getItemCount() {

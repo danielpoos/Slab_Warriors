@@ -10,7 +10,7 @@ public class Enemy {
     private String name, type, details;
     private int level, attack, hp;
     private static List<Enemy> enemyList;
-
+    private static final Random r = new Random();
     public Enemy(Integer id, String name, String type, String details, int level, int attack, int hp) {
         this.id = id;
         this.name = name;
@@ -75,7 +75,6 @@ public class Enemy {
     }
     public static Enemy getRandomEnemy(int level){
         if (level < 0 || enemyList == null) return new Enemy("No Name", "No class", "No details", 0,0,0);
-        Random r = new Random();
         Enemy random = enemyList.get(r.nextInt(enemyList.size()));
         random.setLevel(level);
         random.setHp(random.getHp() + random.getHp() * level / 10);

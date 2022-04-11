@@ -4,6 +4,8 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -19,29 +21,29 @@ public class EnemyAdapter extends RecyclerView.Adapter<EnemyAdapter.EnemyHolder>
         this.context = context;
         this.enemies = enemies;
     }
-    @NonNull
-    @Override public EnemyAdapter.EnemyHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(context).inflate(R.layout.fragment_fighter,viewGroup,false);
+    @NonNull @Override public EnemyAdapter.EnemyHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+        View view = LayoutInflater.from(context).inflate(R.layout.fragment_enemy,viewGroup,false);
         return new EnemyAdapter.EnemyHolder(view);
     }
     @Override public void onBindViewHolder(@NonNull EnemyAdapter.EnemyHolder enemyHolder, int i) {
         i = enemyHolder.getAdapterPosition();
         Enemy sir = enemies.get(i);
         enemyHolder.name.setText(sir.getName());
-        enemyHolder.attack.setText(String.valueOf(sir.getAttack()));
-        enemyHolder.health.setText(String.valueOf(sir.getHp()));
+        enemyHolder.health.setProgress(sir.getHp());
         enemyHolder.itemView.setOnClickListener(v -> enemyPosition = enemyHolder.getAdapterPosition());
     }
     @Override public int getItemCount() {
         return enemies.size();
     }
     public class EnemyHolder extends RecyclerView.ViewHolder {
-        TextView name, attack, health;
+        TextView name;
+        ProgressBar health;
+        ImageView image;
         public EnemyHolder(@NonNull View item) {
             super(item);
-            name = item.findViewById(R.id.fighterName);
-            attack = item.findViewById(R.id.fighterAttack);
-            health = item.findViewById(R.id.fighterHealth);
+            name = item.findViewById(R.id.enemyName);
+            health = item.findViewById(R.id.enemyHealth);
+            image = item.findViewById(R.id.enemyImage);
         }
     }
 }

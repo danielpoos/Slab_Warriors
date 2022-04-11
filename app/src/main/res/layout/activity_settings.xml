@@ -1,69 +1,99 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="40dp">
-    <LinearLayout
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:id="@+id/allSettings"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingBottom="20dp">
+        android:orientation="vertical">
         <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/settingsText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/accountSettings"
-            android:text="@string/accounts_title"
-            android:textSize="25sp"/>
-        <androidx.appcompat.widget.AppCompatEditText
-            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="20dp"
+            android:text="@string/settings"
+            android:textSize="30sp"/>
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/displayedName"
-            android:hint="@string/name"/>
-        <androidx.appcompat.widget.AppCompatCheckBox
-            android:layout_width="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="20dp">
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/accountSettings"
+                android:text="@string/profile_settings"
+                android:textSize="25sp"/>
+            <androidx.appcompat.widget.AppCompatEditText
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/displayedName"
+                android:hint="@string/displayed_name"/>
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/rememberMe"
+                android:text="@string/rememberPassword"/>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/rememberMe"
-            android:text="@string/rememberPassword"/>
-    </LinearLayout>
-    <LinearLayout
+            android:orientation="vertical"
+            android:paddingBottom="20dp">
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/otherSettings"
+                android:text="@string/other"
+                android:textSize="25sp"/>
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/email"
+                android:text="@string/email_title"/>
+            <androidx.appcompat.widget.AppCompatCheckBox
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/token"
+                android:text="@string/token"/>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="20dp">
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/aboutSettings"
+                android:text="@string/about"
+                android:textSize="25sp"/>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/toTheWebpage"
+                android:text="@string/about_us"
+                android:textSize="16sp"
+                android:layout_margin="5dp"/>
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/rules"
+                android:text="@string/rules"
+                android:textSize="16sp"
+                android:layout_margin="5dp"/>
+        </androidx.appcompat.widget.LinearLayoutCompat>
+    </androidx.appcompat.widget.LinearLayoutCompat>
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/allRules"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingBottom="20dp">
-        <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/otherSettings"
-            android:text="@string/other"
-            android:textSize="25sp"/>
-        <androidx.appcompat.widget.AppCompatCheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/email"
-            android:text="@string/email_title"/>
-        <androidx.appcompat.widget.AppCompatCheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/token"
-            android:text="@string/token"/>
-    </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingBottom="20dp">
-        <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/aboutSettings"
-            android:text="@string/about"
-            android:textSize="25sp"/>
-        <androidx.appcompat.widget.AppCompatTextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/toTheWebpage"
-            android:text="@string/about_us"/>
-    </LinearLayout>
+        android:textSize="20sp"
+        android:text="@string/rules_details"
+        android:visibility="gone"/>
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/save"
         android:layout_width="wrap_content"
@@ -71,4 +101,4 @@
         android:text="@string/save"
         android:layout_marginTop="50dp"
         android:layout_gravity="center"/>
-</LinearLayout>
+</androidx.appcompat.widget.LinearLayoutCompat>
