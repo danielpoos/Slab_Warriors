@@ -17,8 +17,8 @@ import com.example.slab_warriors.databinding.FragmentEndgameBinding;
 
 public class EndgameFragment extends Fragment {
     private FragmentEndgameBinding binding;
-    private SharedPreferences sharedPref;
     private int index = 0;
+    private int xp;
     private Handler handler = new Handler();
     public EndgameFragment() {}
     @Override public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -27,6 +27,7 @@ public class EndgameFragment extends Fragment {
     }
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+        binding.okButton.setEnabled(false);
         this.getView().setFocusableInTouchMode(true);
         this.getView().requestFocus();
         this.getView().setOnKeyListener((v, keyCode, event) -> {
@@ -36,14 +37,22 @@ public class EndgameFragment extends Fragment {
             }
             else return false;
         });
-        sharedPref = getContext().getSharedPreferences("winlose", Context.MODE_PRIVATE);
-        binding.wlTView.setText(sharedPref.getString("winlose", "lose").equals("lose")?R.string.lose:R.string.win);
+        SharedPreferences sharedPref = getContext().getSharedPreferences("winlose", Context.MODE_PRIVATE);
+        if (sharedPref.getString("winlose", "lose").equals("lose")){
+            binding.wlTView.setText(getString(R.string.lose));
+            xp = 50;
+        }
+        else{
+            binding.wlTView.setText(getString(R.string.win));
+            xp = 100;
+        }
         new Thread(() -> {
-            while (index < 100) {
+            while (index < xp) {
                 index += 1;
                 handler.post(new Runnable() {
                     public void run() {
                         binding.endTView.setText(getString(R.string.earned)+index+getString(R.string.xp));
+                        if (index == xp) binding.okButton.setEnabled(true);
                     }
                 });
                 try {
@@ -56,6 +65,9 @@ public class EndgameFragment extends Fragment {
         binding.okButton.setOnClickListener(v-> {
             Intent backToMenu = new Intent(this.getActivity(), MenuActivity.class);
             startActivity(backToMenu);
+            //if leveled up
+            getActivity().finish();
+            getActivity().overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
         });
     }
     @Override public void onDestroyView() {

@@ -5,12 +5,12 @@
     <string name="settings">Beállítások</string>
     <string name="exit">Kilépés</string>
     <string name="password">Jelszó</string>
-    <string name="rememberPassword">Emlékezz a jelszavamra</string>
+    <string name="remember_password">Emlékezz a jelszavamra</string>
     <string name="displayed_name">Kijelzett név</string>
     <string name="profile_settings">Felhasználói beállítások</string>
     <string name="signature_title">Aláírás</string>
     <string name="next">Harcos kiválasztása</string>
-    <string name="hello_first_fragment">Válassz harcost</string>
+    <string name="select_fighter">Válassz harcost</string>
     <string name="other">Egyéb beállítások</string>
     <string name="action_settings">Fiók beállítások</string>
     <string name="email_on">Küldj értesítő e-maileket a játék  frissítésiről, híreiről</string>
@@ -58,8 +58,16 @@ A körönként letehető kártyák mennyisége nem halmozódik fel: ha egy kárt
     <string name="name">Felhasználónév</string>
     <string name="login_failed">Bejelentkezés sikertelen</string>
     <string name="login_empty">Üres felhasználónév vagy jelszó</string>
-    <string name="logorreg">Bejelentkezés vagy regisztráció</string>
+    <string name="log_or_reg">Bejelentkezés vagy regisztráció</string>
     <string name="log_out">Kijelentkezés</string>
     <string name="login_invalid">Hibás felhasználónév vagy jelszó</string>
     <string name="welcome">Üdvözöllek</string>
+    <string name="fab_next">Következő</string>
+    <string name="back">Vissza</string>
+    <string name="name_change">A felhasználónevet nem lehet megváltoztatni</string>
+    <string name="passwordAgain">Jelszó újra</string>
+    <string name="register_failed">Sikertelen regisztráció</string>
+    <string name="fill_fields">Az összes mező kitöltése kötelező</string>
+    <string name="not_matching_passwords">Nem egyező jelszavak</string>
+    <string name="success">Új felhasználó sikeresen létrehozva</string>
 </resources>

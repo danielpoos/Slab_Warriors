@@ -6,26 +6,35 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
+import com.example.slab_warriors.api.RequestTask;
 import com.example.slab_warriors.data.User;
 
 public class LoadingActivity1 extends AppCompatActivity {
     private SharedPreferences sharedPref;
+    private final String userUrl = "http://192.168.1.94:8000/api/users";
     @Override protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loading1);
         splashScreenActivation();
     }
-
     private void splashScreenActivation() {
         int timeout = 2000;
         new Handler().postDelayed(() -> {
             sharedPref = getSharedPreferences("settings", Context.MODE_PRIVATE);
             boolean isLoggedIn = sharedPref.getBoolean("remember", false);
+            String username = sharedPref.getString("username", "");
             if (isLoggedIn) {
-                startActivity(new Intent(LoadingActivity1.this, MenuActivity.class));
-                finish();
-                overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
-                return;
+                if (!username.equals("")){
+                    RequestTask getUserInsteadLogin = new RequestTask(userUrl, "get");
+                    getUserInsteadLogin.execute();
+                    getUserInsteadLogin.setFinalTask(() -> {
+                        User.getUser(getUserInsteadLogin.response.getContent(),username);
+                        startActivity(new Intent(LoadingActivity1.this, MenuActivity.class));
+                        finish();
+                        overridePendingTransition(R.anim.fade_in, R.anim.fade_out);
+                    });
+                    return;
+                }
             }
             User.loggedInUser = null;
             startActivity(new Intent(LoadingActivity1.this, LoginActivity.class));

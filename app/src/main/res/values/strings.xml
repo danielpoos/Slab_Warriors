@@ -5,7 +5,7 @@
     <string name="settings">Settings</string>
     <string name="exit">Exit</string>
     <string name="password">Password</string>
-    <string name="rememberPassword">Remember my password</string>
+    <string name="remember_password">Remember my password</string>
     <string name="displayed_name">Displayed name</string>
     <string name="profile_settings">Profile settings</string>
     <string name="signature_title">Your signature</string>
@@ -15,7 +15,7 @@
     <string name="login_empty">Username or password is empty</string>
     <string name="login_failed">Login failed</string>
     <string name="next">Select fighter</string>
-    <string name="hello_first_fragment">Choose a fighter</string>
+    <string name="select_fighter">Choose a fighter</string>
     <string name="other">Other settings</string>
     <string name="settings_title">Advanced</string>
     <string name="email_title">Email notification</string>
@@ -52,8 +52,16 @@
     <string name="register">Register</string>
     <string name="email">Email address</string>
     <string name="name">Username</string>
-    <string name="logorreg">Login or register</string>
+    <string name="log_or_reg">Login or register</string>
     <string name="log_out">Log out</string>
     <string name="login_invalid">Invalid username or password!</string>
     <string name="welcome">Welcome</string>
+    <string name="fab_next">Next</string>
+    <string name="back">Back</string>
+    <string name="name_change">Cannot change username</string>
+    <string name="passwordAgain">Password again</string>
+    <string name="register_failed">Register unsuccessful</string>
+    <string name="fill_fields">You have to fill all the fields</string>
+    <string name="not_matching_passwords">Passwords are not matching</string>
+    <string name="success">New user created successfully</string>
 </resources>

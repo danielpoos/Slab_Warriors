@@ -38,7 +38,7 @@ public class CharactersActivity extends AppCompatActivity {
         binding.cardRView.setVisibility(View.VISIBLE);
         binding.enemyRView.setVisibility(View.GONE);
         binding.fighterRView.setVisibility(View.GONE);
-        GridLayoutManager cardLayoutManager = new GridLayoutManager(this,2);
+        GridLayoutManager cardLayoutManager = new GridLayoutManager(this,3);
         cardLayoutManager.setOrientation(RecyclerView.VERTICAL);
         binding.cardRView.setLayoutManager(cardLayoutManager);
         LinearLayoutManager enemyLayoutManager = new LinearLayoutManager(this);

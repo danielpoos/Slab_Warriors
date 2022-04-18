@@ -8,7 +8,7 @@ public class Card {
     private Integer id;
     private String name, type, details;
     private int level, attack, hp, summonCost;
-
+    private static List<Card> deck;
     public Card(Integer id, String name, String type, String details, int level, int attack, int hp, int summonCost) {
         this.id = id;
         this.name = name;
@@ -76,6 +76,7 @@ public class Card {
     public static List<Card> getCards(String in){
         Gson converter = new Gson();
         Card[] cards = converter.fromJson(in,Card[].class);
+        deck = Arrays.asList(cards);
         return Arrays.asList(cards);
     }
 }

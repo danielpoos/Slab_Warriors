@@ -9,7 +9,7 @@ public class Fighter {
     private Integer id;
     private String name, type, details;
     private int level, attack, hp;
-
+    public static List<Fighter> fighterList;
     public Fighter(Integer id, String name, String type, String details, int level, int attack, int hp) {
         this.id = id;
         this.name = name;
@@ -69,6 +69,7 @@ public class Fighter {
     public static List<Fighter> getFighters(String in){
         Gson converter = new Gson();
         Fighter[] fighters = converter.fromJson(in,Fighter[].class);
+        fighterList = Arrays.asList(fighters);
         return Arrays.asList(fighters);
     }
     @NonNull @Override public String toString() {

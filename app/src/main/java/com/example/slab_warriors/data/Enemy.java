@@ -71,7 +71,7 @@ public class Enemy {
         Gson converter = new Gson();
         Enemy[] enemies = converter.fromJson(in,Enemy[].class);
         enemyList = Arrays.asList(enemies);
-        return enemyList;
+        return Arrays.asList(enemies);
     }
     public static Enemy getRandomEnemy(int level){
         if (level < 0 || enemyList == null) return new Enemy("No Name", "No class", "No details", 0,0,0);

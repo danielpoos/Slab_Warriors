@@ -16,7 +16,6 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardHolder>{
     public Context context;
     public List<Card> cards;
     public int cardPosition = -1;
-    public boolean selected = false;
     public CardAdapter(Context context,List<Card> cards) {
         this.context = context;
         this.cards = cards;
@@ -31,11 +30,7 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardHolder>{
         cardHolder.name.setText(sir.getName());
         cardHolder.attack.setText(String.valueOf(sir.getAttack()));
         cardHolder.health.setText(String.valueOf(sir.getHp()));
-        cardHolder.itemView.setOnClickListener(v -> {
-            selected = !selected;
-            if (selected) cardPosition = cardHolder.getAdapterPosition();
-            else cardPosition = -1;
-        });
+        cardHolder.itemView.setOnClickListener(v -> cardPosition = cardHolder.getAdapterPosition());
         cardHolder.itemView.setOnLongClickListener(v->{
             cardPosition = cardHolder.getAdapterPosition();
             Snackbar.make(v,cards.get(cardPosition).getDetails(), Snackbar.LENGTH_SHORT).show();
@@ -43,16 +38,14 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardHolder>{
             return false;
         });
     }
-    public void removeCard(){
-        //cards.remove(cardPosition);
-        notifyItemRemoved(cardPosition);
-        notifyItemRangeChanged(cardPosition,cards.size());
-        selected = false;
+    public void removeCard(int pos){
+        cards.remove(pos);
+        notifyItemRemoved(pos);
+        notifyItemRangeChanged(pos,cards.size());
     }
     public void addCard(Card card){
-        selected = false;
         cards.add(card);
-        notifyItemInserted(cardPosition);
+        notifyItemInserted(0);
         notifyItemRangeChanged(cardPosition,cards.size());
     }
     @Override public int getItemCount() {

@@ -12,7 +12,7 @@
         android:id="@+id/textview_first"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/hello_first_fragment"
+        android:text="@string/select_fighter"
         android:textSize="28sp"
         app:layout_constraintBottom_toTopOf="@id/fighteRView"
         app:layout_constraintEnd_toEndOf="parent"
