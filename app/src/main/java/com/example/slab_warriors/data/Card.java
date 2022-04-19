@@ -7,9 +7,9 @@ import java.util.List;
 public class Card {
     private Integer id;
     private String name, type, details;
-    private int level, attack, hp, summonCost;
-    private static List<Card> deck;
-    public Card(Integer id, String name, String type, String details, int level, int attack, int hp, int summonCost) {
+    private int level, attack, hp;
+    public static List<Card> deck;
+    public Card(Integer id, String name, String type, String details, int level, int attack, int hp) {
         this.id = id;
         this.name = name;
         this.type = type;
@@ -17,16 +17,14 @@ public class Card {
         this.level = level;
         this.attack = attack;
         this.hp = hp;
-        this.summonCost = summonCost;
     }
-    public Card(String name, String type, String details, int level, int attack, int hp, int summonCost) {
+    public Card(String name, String type, String details, int level, int attack, int hp) {
         this.name = name;
         this.type = type;
         this.details = details;
         this.level = level;
         this.attack = attack;
         this.hp = hp;
-        this.summonCost = summonCost;
     }
     public Integer getId() {
         return id;
@@ -66,12 +64,6 @@ public class Card {
     }
     public void setHp(int hp) {
         this.hp = hp;
-    }
-    public int getSummonCost() {
-        return summonCost;
-    }
-    public void setSummonCost(int summonCost) {
-        this.summonCost = summonCost;
     }
     public static List<Card> getCards(String in){
         Gson converter = new Gson();

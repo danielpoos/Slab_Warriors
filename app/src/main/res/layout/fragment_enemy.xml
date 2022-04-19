@@ -9,24 +9,25 @@
         android:id="@+id/relativeEnemyLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
+
         <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/enemyName"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:textSize="20sp"
-            android:textAlignment="center"
+            android:layout_height="30dp"
             android:textAllCaps="true"
-            android:id="@+id/enemyName"/>
+            android:textSize="25sp"
+            android:gravity="center"/>
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/enemyImage"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="240dp"
+            android:layout_below="@id/enemyName"/>
         <ProgressBar
             android:id="@+id/enemyHealth"
             style="@android:style/Widget.ProgressBar.Horizontal"
             android:layout_width="match_parent"
             android:layout_height="30dp"
             android:layout_below="@id/enemyImage"
-            android:layout_marginTop="270dp"
             android:indeterminateTint="@color/orange"
             android:max="100"
             android:progress="100"

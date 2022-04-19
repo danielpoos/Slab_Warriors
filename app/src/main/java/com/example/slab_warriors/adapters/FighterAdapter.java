@@ -4,8 +4,10 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
+import androidx.appcompat.content.res.AppCompatResources;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.slab_warriors.R;
 import com.example.slab_warriors.data.Fighter;
@@ -30,6 +32,12 @@ public class FighterAdapter extends RecyclerView.Adapter<FighterAdapter.FighterH
         fighterHolder.name.setText(sir.getName());
         fighterHolder.attack.setText(String.valueOf(sir.getAttack()));
         fighterHolder.health.setText(String.valueOf(sir.getHp()));
+        switch (sir.getName()){
+            case "Don":;break;
+            case "Karl":;break;
+            case "Shean":;break;
+            case "Victor":fighterHolder.image.setImageDrawable(AppCompatResources.getDrawable(context, R.drawable.victor));break;
+        }
         fighterHolder.itemView.setOnClickListener(v -> fighterPosition = fighterHolder.getAdapterPosition());
         fighterHolder.itemView.setOnLongClickListener(v->{
             fighterPosition = fighterHolder.getAdapterPosition();
@@ -43,11 +51,13 @@ public class FighterAdapter extends RecyclerView.Adapter<FighterAdapter.FighterH
     }
     public class FighterHolder extends RecyclerView.ViewHolder {
         TextView name, attack, health;
+        ImageView image;
         public FighterHolder(@NonNull View item) {
             super(item);
             name = item.findViewById(R.id.fighterName);
             attack = item.findViewById(R.id.fighterAttack);
             health = item.findViewById(R.id.fighterHealth);
+            image = item.findViewById(R.id.fighterImage);
         }
     }
 }

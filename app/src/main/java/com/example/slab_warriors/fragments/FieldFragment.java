@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
+import androidx.appcompat.content.res.AppCompatResources;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -19,7 +20,6 @@ import com.example.slab_warriors.data.Fighter;
 import com.example.slab_warriors.data.Card;
 import com.example.slab_warriors.data.Enemy;
 import com.example.slab_warriors.databinding.FragmentFieldBinding;
-import com.google.android.material.snackbar.Snackbar;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
@@ -35,6 +35,7 @@ public class FieldFragment extends Fragment {
     private SharedPreferences.Editor editor;
     private int placeableCards = 0;
     private int maximumCardsOnField = 0;
+    private int enemyGetAttacked = 0;
     private Enemy boss;
     private Fighter fighter;
     private boolean fighterSelected = false;
@@ -66,37 +67,20 @@ public class FieldFragment extends Fragment {
         fieldedCardList = new LinkedList<>();
         fieldedCardAdapter = new CardAdapter(getContext(),fieldedCardList);
         binding.fieldedCards.setAdapter(fieldedCardAdapter);
-        RequestTask cardTask = new RequestTask(cardUrl,"get");
-        cardTask.execute();
-        cardTask.setFinalTask(() -> {
-            cardList = Card.getCards(cardTask.response.getContent());
-            cardAdapter = new CardAdapter(getContext(),cardList);
-            binding.deckRView.setAdapter(cardAdapter);
-        });
-        RequestTask enemyTask = new RequestTask(enemyUrl,"get");
-        enemyTask.execute();
-        enemyTask.setFinalTask(() -> {
-            Enemy.getEnemies(enemyTask.response.getContent());
-            boss = Enemy.getRandomEnemy(1);
-            binding.enemyName.setText(boss.getName()+getString(R.string.level)+boss.getLevel()+".");
-            binding.enemyHealth.setMax(boss.getHp());
-            binding.enemyHealth.setProgress(boss.getHp());
-        });
-        sharedPreferences = getActivity().getSharedPreferences("fighter", Context.MODE_PRIVATE);
-        String fighterString = sharedPreferences.getString("fighter", "No fighter");
-        fighter = Fighter.toFighter(fighterString);
-        binding.fighterName.setText(fighter.getName()+getString(R.string.level)+fighter.getLevel()+".");
-        binding.fighterHealth.setText(String.valueOf(fighter.getHp()));
-        binding.fighterAttack.setText(String.valueOf(fighter.getAttack()));
+        initiateCards();
+        initiateEnemy();
+        initiateFighter();
         binding.fighterLayout.setOnClickListener(v-> {
             fighterSelected = true;
-            binding.fabFighterInfo.setVisibility(View.VISIBLE);
-            //binding.fighterLayout.setVisibility(View.GONE);
         });
         binding.fabFighterInfo.setOnClickListener(v-> {
-            //binding.fabFighterInfo.setVisibility(View.GONE);
-            binding.fighterLayout.setVisibility(View.VISIBLE);
-            Snackbar.make(v, fighter.getDetails(), Snackbar.LENGTH_LONG).show();
+            if (binding.howToPlay.getVisibility() == View.VISIBLE){
+                binding.howToPlay.setVisibility(View.GONE);
+            }
+            else binding.howToPlay.setVisibility(View.VISIBLE);
+        });
+        binding.howToPlay.setOnClickListener(v-> {
+            binding.howToPlay.setVisibility(View.GONE);
         });
         binding.enemyLayout.setOnClickListener(v-> interactWithEnemy());
         binding.fieldLayout.setOnClickListener(v-> interactWithField());
@@ -105,7 +89,47 @@ public class FieldFragment extends Fragment {
             attackRandomCard();
             fighterAttacked = false;
             placeableCards = 0;
+            enemyGetAttacked = 0;
         });
+    }
+    private void initiateCards() {
+        RequestTask cardTask = new RequestTask(cardUrl,"get");
+        cardTask.execute();
+        cardTask.setFinalTask(() -> {
+            cardList = Card.getCards(cardTask.response.getContent());
+            cardAdapter = new CardAdapter(getContext(),cardList);
+            binding.deckRView.setAdapter(cardAdapter);
+        });
+    }
+    private void initiateEnemy() {
+        RequestTask enemyTask = new RequestTask(enemyUrl,"get");
+        enemyTask.execute();
+        enemyTask.setFinalTask(() -> {
+            Enemy.getEnemies(enemyTask.response.getContent());
+            boss = Enemy.getRandomEnemy(1);
+            binding.enemyName.setText(boss.getName()+getString(R.string.level)+boss.getLevel()+".");
+            binding.enemyHealth.setMax(boss.getHp());
+            binding.enemyHealth.setProgress(boss.getHp());
+            switch (boss.getName()){
+                case "Yargol":binding.enemyImage.setImageDrawable(AppCompatResources.getDrawable(getContext(), R.drawable.yargol));break;
+                case "": break;
+            }
+        });
+    }
+    private void initiateFighter() {
+        sharedPreferences = getActivity().getSharedPreferences("fighter", Context.MODE_PRIVATE);
+        String fighterString = sharedPreferences.getString("fighter", "No fighter");
+        fighter = Fighter.toFighter(fighterString);
+        binding.fighterName.setText(fighter.getName()+getString(R.string.level)+fighter.getLevel()+".");
+        binding.fighterHealth.setText(String.valueOf(fighter.getHp()));
+        binding.fighterAttack.setText(String.valueOf(fighter.getAttack()));
+        switch (fighter.getName()){
+            case "Don":;break;
+            case "Karl":;break;
+            case "Shean":;break;
+            case "Victor":
+                binding.fighterImage.setImageDrawable(AppCompatResources.getDrawable(getContext(), R.drawable.victor));break;
+        }
     }
     private void interactWithField() {
         if (fighterSelected) fighterSelected = false;
@@ -114,9 +138,10 @@ public class FieldFragment extends Fragment {
             binding.noCardTView.setVisibility(View.GONE);
             binding.fieldedCards.setVisibility(View.VISIBLE);
             binding.placeCard.setVisibility(View.VISIBLE);
-            if (placeableCards <=4 && maximumCardsOnField <=7){
+            if (placeableCards <4 && maximumCardsOnField <7){
                 Card selectedCard = cardAdapter.cards.get(cardAdapter.cardPosition);
-                fieldedCardAdapter.addCard(selectedCard);
+                Card sc = new Card(selectedCard.getName(), selectedCard.getType(), selectedCard.getDetails(), selectedCard.getLevel(), selectedCard.getAttack(), selectedCard.getHp());
+                fieldedCardAdapter.addCard(sc);
                 maximumCardsOnField = fieldedCardList.size();
             }
             else Toast.makeText(getContext(), getString(R.string.cards_left) + " "+maximumCardsOnField, Toast.LENGTH_SHORT).show();
@@ -130,34 +155,43 @@ public class FieldFragment extends Fragment {
     private void interactWithEnemy() {
         if(fighterSelected && !fighterAttacked){
             boss.setHp(boss.getHp()-fighter.getAttack());
+            theBossHasNoHp();
             fighterSelected = false;
             fighterAttacked = true;
-        }
-        else if(fieldedCardAdapter.cardPosition != -1){
+        }else if(fighterSelected && fighterAttacked){
+            Toast.makeText(getContext(), getString(R.string.already_attacked), Toast.LENGTH_SHORT).show();
+            fighterSelected = false;
+        }else if(enemyGetAttacked>2){
+            Toast.makeText(getContext(), getString(R.string.cant_attack), Toast.LENGTH_SHORT).show();
+        }else if(fieldedCardAdapter.cardPosition != -1){
+            enemyGetAttacked++;
             boss.setHp(boss.getHp()-fieldedCardList.get(fieldedCardAdapter.cardPosition).getAttack());
-            if (boss.getHp() <= 0){
-                boss.setHp(0);
-                sharedPreference = getContext().getSharedPreferences("winlose", Context.MODE_PRIVATE);
-                editor = sharedPreference.edit();
-                editor.putString("winlose", "win");
-                editor.commit();
-                binding.enemyHealth.setProgress(0);
-                try {
-                    Thread.sleep(500);
-                } catch (InterruptedException e) {
-                    e.printStackTrace();
-                }
-                NavHostFragment.findNavController(FieldFragment.this).navigate(R.id.toTheEndgameFragment);
-            }
+            theBossHasNoHp();
             fieldedCardAdapter.cardPosition = -1;
             //animation
-            binding.enemyHealth.setProgress(boss.getHp());
         }else if (cardAdapter.cardPosition != -1){
             cardAdapter.cardPosition = -1;
             Toast.makeText(getContext(), getString(R.string.no_card_selected), Toast.LENGTH_SHORT).show();
         }else{
-            Toast.makeText(getContext(), getString(R.string.no_card_selected), Toast.LENGTH_SHORT).show();
+            Toast.makeText(getContext(), getString(R.string.cant_attack), Toast.LENGTH_SHORT).show();
         }
+    }
+    private void theBossHasNoHp() {
+        if (boss.getHp() <= 0){
+            boss.setHp(0);
+            sharedPreference = getContext().getSharedPreferences("winlose", Context.MODE_PRIVATE);
+            editor = sharedPreference.edit();
+            editor.putString("winlose", "win");
+            editor.commit();
+            binding.enemyHealth.setProgress(0);
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            NavHostFragment.findNavController(FieldFragment.this).navigate(R.id.toTheEndgameFragment);
+        }
+        binding.enemyHealth.setProgress(boss.getHp());
     }
     private void attackTheFighter(){
         fighter.setHp(fighter.getHp()-boss.getAttack());
@@ -182,16 +216,24 @@ public class FieldFragment extends Fragment {
             attackTheFighter();
             return;
         }
-        try {
-            Thread.sleep(500);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
         Random r = new Random();
-        int valami = r.nextInt(fieldedCardList.size());
-        Card attackedCard = fieldedCardList.get(valami);
+        int randomInt = r.nextInt(fieldedCardList.size());
+        Card attackedCard = fieldedCardList.get(randomInt);
         attackedCard.setHp(attackedCard.getHp()-boss.getAttack());
-        fieldedCardAdapter.removeCard(valami);
+        fieldedCardAdapter.notifyItemChanged(randomInt);
+        if (attackedCard.getHp()<0){
+            try {
+                Thread.sleep(650);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            fieldedCardAdapter.removeCard(randomInt);
+        }
+        if (fieldedCardAdapter.cards.size() == 0){
+            binding.noCardTView.setVisibility(View.VISIBLE);
+            binding.fieldedCards.setVisibility(View.GONE);
+            binding.placeCard.setVisibility(View.GONE);
+        }
     }
     @Override public void onDestroyView() {
         super.onDestroyView();

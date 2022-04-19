@@ -4,8 +4,10 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
+import androidx.appcompat.content.res.AppCompatResources;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.slab_warriors.R;
 import com.example.slab_warriors.data.Card;
@@ -30,6 +32,24 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardHolder>{
         cardHolder.name.setText(sir.getName());
         cardHolder.attack.setText(String.valueOf(sir.getAttack()));
         cardHolder.health.setText(String.valueOf(sir.getHp()));
+        switch (sir.getName()){
+            case "Alejandro":cardHolder.image.setImageDrawable(AppCompatResources.getDrawable(context, R.drawable.alejandro));
+                break;
+            case "Catapult":cardHolder.image.setImageDrawable(AppCompatResources.getDrawable(context, R.drawable.catapult));
+                break;
+            case "Cecilia":cardHolder.image.setImageDrawable(AppCompatResources.getDrawable(context, R.drawable.cecilia));
+                break;
+            case "Chloe":cardHolder.image.setImageDrawable(AppCompatResources.getDrawable(context, R.drawable.chloe));
+                break;
+            case "Footman":cardHolder.image.setImageDrawable(AppCompatResources.getDrawable(context, R.drawable.footman));
+                break;
+            case "Francis":cardHolder.image.setImageDrawable(AppCompatResources.getDrawable(context, R.drawable.francis));
+                break;
+            case "John S.":cardHolder.image.setImageDrawable(AppCompatResources.getDrawable(context, R.drawable.johns));
+                break;
+            case "Mad Dog":cardHolder.image.setImageDrawable(AppCompatResources.getDrawable(context, R.drawable.maddog));
+                break;
+        }
         cardHolder.itemView.setOnClickListener(v -> cardPosition = cardHolder.getAdapterPosition());
         cardHolder.itemView.setOnLongClickListener(v->{
             cardPosition = cardHolder.getAdapterPosition();
@@ -41,23 +61,27 @@ public class CardAdapter extends RecyclerView.Adapter<CardAdapter.CardHolder>{
     public void removeCard(int pos){
         cards.remove(pos);
         notifyItemRemoved(pos);
+        notifyItemRangeRemoved(pos,cards.size());
         notifyItemRangeChanged(pos,cards.size());
     }
     public void addCard(Card card){
         cards.add(card);
-        notifyItemInserted(0);
-        notifyItemRangeChanged(cardPosition,cards.size());
+        notifyItemInserted(cards.size()-1);
+        notifyItemRangeInserted(cards.size()-1,cards.size());
+        notifyItemRangeChanged(cards.size()-1,cards.size());
     }
     @Override public int getItemCount() {
         return cards.size();
     }
     public class CardHolder extends RecyclerView.ViewHolder {
         TextView name, attack, health;
+        ImageView image;
         public CardHolder(@NonNull View item) {
             super(item);
             name = item.findViewById(R.id.cardName);
             attack = item.findViewById(R.id.cardAttack);
             health = item.findViewById(R.id.cardHealth);
+            image = item.findViewById(R.id.cardImage);
         }
     }
 }

@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
+import androidx.appcompat.content.res.AppCompatResources;
 import androidx.recyclerview.widget.RecyclerView;
 import com.example.slab_warriors.R;
 import com.example.slab_warriors.data.Enemy;
@@ -30,6 +31,10 @@ public class EnemyAdapter extends RecyclerView.Adapter<EnemyAdapter.EnemyHolder>
         Enemy sir = enemies.get(i);
         enemyHolder.name.setText(sir.getName());
         enemyHolder.health.setProgress(sir.getHp());
+        switch (sir.getName()){
+            case "Yargol":enemyHolder.image.setImageDrawable(AppCompatResources.getDrawable(context, R.drawable.yargol));break;
+            case "": break;
+        }
         enemyHolder.itemView.setOnClickListener(v -> enemyPosition = enemyHolder.getAdapterPosition());
     }
     @Override public int getItemCount() {
