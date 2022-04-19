@@ -34,15 +34,9 @@
     <string name="save">Mentés</string>
     <string name="earned">"Szerzett tapasztalatpont: "</string>
     <string name="xp">tp</string>
-    <string name="level">", Szintje "</string>
+    <string name="level">", Szint "</string>
     <string name="rules">Hogyan játszak</string>
-    <string name="rules_details">Minden egyes meccsben te jössz először.
-A mezőn lévő kártyák tudják csak támadni az ellenfelet, tehát előbb le kell tenni a kézből.
-Ha a boss hp-ja eléri a 0-át, nyertél. Ha a saját harcosod hp-ja lesz 0, akkor vesztettél.
-Amit minden körben meg tudsz csinálni: letenni 3 kártyát a térfeled bármelyik helyére, egyszer támadni bármit a harcossal és ugyanennyiszer bámelyik kártyáddal.
-Mindegyik sávnak van 5 db helye.
-A körönként letehető kártyák mennyisége nem halmozódik fel: ha egy kártyát nem tettél le egy körben, a következőben ez a mennyiség nem adódik hozzá a maximum limithez.
-    </string>
+    <string name="rules_details">"Minden egyes meccsben te jössz először.\nA mezőn lévő kártyák tudják csak támadni az ellenfelet, tehát előbb le kell tenni a kézből.\nHa a boss hp-ja eléri a 0-át, nyertél. Ha a saját harcosod hp-ja lesz 0, akkor vesztettél.\nAmit minden körben meg tudsz csinálni: letenni 3 kártyát a térfeled bármelyik helyére, egyszer támadni bármit a harcossal és ugyanennyiszer bámelyik kártyáddal.\nMindegyik sávnak van 5 db helye.\nA körönként letehető kártyák mennyisége nem halmozódik fel: ha egy kártyát nem tettél le egy körben, a következőben ez a mennyiség nem adódik hozzá a maximum limithez."</string>
     <string name="disappear">Tűntesd el</string>
     <string name="cards_left">Ennyi kártyát tehetsz le:</string>
     <string name="place_card">Tegyél kártyát a mezőre</string>
@@ -70,4 +64,6 @@ A körönként letehető kártyák mennyisége nem halmozódik fel: ha egy kárt
     <string name="fill_fields">Az összes mező kitöltése kötelező</string>
     <string name="not_matching_passwords">Nem egyező jelszavak</string>
     <string name="success">Új felhasználó sikeresen létrehozva</string>
+    <string name="already_attacked">Már támadtál a harcosoddal</string>
+    <string name="how_to_play">"A játék menete\nLe kell tenned egy kártyát a kezedből a játékmezőre. \nElőször ki kell választanod egy kártyát:\n\térints meg egy kártyát a kiválasztáshoz és tedd a mezőre\\n\\tha az ellenfélre teszed a kártyád, az meg lesz támadva\n\tha az ellenfélre teszed a harcost szintén meg lesz támadva. \nCsak a mezőn lévő kártyákkal és a harcosoddal tudod megtámadni az ellenfelet.\nA kártyák amiket lethetsz és a támadások száma le van korlátozva egy körben.\nA következő gombra kell kattintanod, hogy a követező körbe lépj."</string>
 </resources>

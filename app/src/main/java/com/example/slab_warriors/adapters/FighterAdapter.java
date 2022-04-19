@@ -33,9 +33,9 @@ public class FighterAdapter extends RecyclerView.Adapter<FighterAdapter.FighterH
         fighterHolder.attack.setText(String.valueOf(sir.getAttack()));
         fighterHolder.health.setText(String.valueOf(sir.getHp()));
         switch (sir.getName()){
-            case "Don":;break;
-            case "Karl":;break;
-            case "Shean":;break;
+            case "Don":fighterHolder.image.setImageDrawable(AppCompatResources.getDrawable(context, R.drawable.don));break;
+            case "Karl":fighterHolder.image.setImageDrawable(AppCompatResources.getDrawable(context, R.drawable.karl));break;
+            case "Shean":fighterHolder.image.setImageDrawable(AppCompatResources.getDrawable(context, R.drawable.shean));break;
             case "Victor":fighterHolder.image.setImageDrawable(AppCompatResources.getDrawable(context, R.drawable.victor));break;
         }
         fighterHolder.itemView.setOnClickListener(v -> fighterPosition = fighterHolder.getAdapterPosition());

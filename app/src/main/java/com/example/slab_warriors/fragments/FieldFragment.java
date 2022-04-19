@@ -7,6 +7,7 @@ import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AnimationUtils;
 import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.content.res.AppCompatResources;
@@ -124,9 +125,12 @@ public class FieldFragment extends Fragment {
         binding.fighterHealth.setText(String.valueOf(fighter.getHp()));
         binding.fighterAttack.setText(String.valueOf(fighter.getAttack()));
         switch (fighter.getName()){
-            case "Don":;break;
-            case "Karl":;break;
-            case "Shean":;break;
+            case "Don":
+                binding.fighterImage.setImageDrawable(AppCompatResources.getDrawable(getContext(), R.drawable.don));break;
+            case "Karl":
+                binding.fighterImage.setImageDrawable(AppCompatResources.getDrawable(getContext(), R.drawable.karl));break;
+            case "Shean":
+                binding.fighterImage.setImageDrawable(AppCompatResources.getDrawable(getContext(), R.drawable.shean));break;
             case "Victor":
                 binding.fighterImage.setImageDrawable(AppCompatResources.getDrawable(getContext(), R.drawable.victor));break;
         }
@@ -155,6 +159,7 @@ public class FieldFragment extends Fragment {
     private void interactWithEnemy() {
         if(fighterSelected && !fighterAttacked){
             boss.setHp(boss.getHp()-fighter.getAttack());
+            binding.enemyImage.startAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.shake));
             theBossHasNoHp();
             fighterSelected = false;
             fighterAttacked = true;
@@ -166,6 +171,7 @@ public class FieldFragment extends Fragment {
         }else if(fieldedCardAdapter.cardPosition != -1){
             enemyGetAttacked++;
             boss.setHp(boss.getHp()-fieldedCardList.get(fieldedCardAdapter.cardPosition).getAttack());
+            binding.enemyImage.startAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.shake));
             theBossHasNoHp();
             fieldedCardAdapter.cardPosition = -1;
             //animation
@@ -194,6 +200,7 @@ public class FieldFragment extends Fragment {
         binding.enemyHealth.setProgress(boss.getHp());
     }
     private void attackTheFighter(){
+        binding.fighterImage.startAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.shake));
         fighter.setHp(fighter.getHp()-boss.getAttack());
         binding.fighterHealth.setText(fighter.getHp()+"");
         if (fighter.getHp() <= 0){
@@ -228,6 +235,7 @@ public class FieldFragment extends Fragment {
                 e.printStackTrace();
             }
             fieldedCardAdapter.removeCard(randomInt);
+            maximumCardsOnField = fieldedCardList.size();
         }
         if (fieldedCardAdapter.cards.size() == 0){
             binding.noCardTView.setVisibility(View.VISIBLE);

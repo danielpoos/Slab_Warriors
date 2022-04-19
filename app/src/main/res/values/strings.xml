@@ -22,13 +22,13 @@
     <string name="token">Enable login with token</string>
     <string name="about">About us</string>
     <string name="fab_description">Help</string>
-    <string name="choose">Choose a fighter: each one has it\'s own effect on the battle</string>
+    <string name="choose">Choose a fighter</string>
     <string name="no_selected_fighter">No selected fighter</string>
     <string name="about_us">To the webpage</string>
     <string name="cancel">Cancel</string>
     <string name="ok">Claim prize</string>
     <string name="win">Congratulations, You won!</string>
-    <string name="lose">You lost, but You get it next time!</string>
+    <string name="lose">You\'ve lost, but you\'ll win next time!</string>
     <string name="cards">Cards</string>
     <string name="fighters">Fighters</string>
     <string name="enemies">Enemies</string>
@@ -47,7 +47,7 @@
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="disappear">Make it disappear</string>
-    <string name="rules_details">"You have the first turn in every match. Only the cards that placed on the field can attack the enemy, so you have to place them from your hand. If the boss' hp drops to 0, you won. If your own fighter runs out of hp, you lose. What you can do in every round: you can place 3 cards, and after you can attack with your fighter or cards. The field has 6 slots where you can place your cards. You cannot place more cards in a round then the limit or if you hadn't placed any cards at all, you will still have athe same amount of cards that you can place. "</string>
+    <string name="rules_details">"You have the first turn in every match. \nOnly the cards placed on the field can attack the enemy, so you have to place them from your hand. \nIf the boss' hp drops to 0, you won. If your own fighter runs out of hp, you lose. \nWhat you can do in every round: you can place 3 cards, and after that you can attack with your fighter or cards. \nThe field has 6 slots where you can place your cards. \nYou cannot place more cards in a round than the limit or if you hadn't placed any cards at all. \nYou will still have the same amount of cards that you can place."</string>
     <string name="login">Login</string>
     <string name="register">Register</string>
     <string name="email">Email address</string>
@@ -64,4 +64,6 @@
     <string name="fill_fields">You have to fill all the fields</string>
     <string name="not_matching_passwords">Passwords are not matching</string>
     <string name="success">New user created successfully</string>
+    <string name="already_attacked">You have already attacked with your fighter</string>
+    <string name="how_to_play">"How to play\nYou have to put a card from your hand to the field.\nFirst you have to select a card:\n\ttap on the card to select it and tap on the field to place it there\n\tif you place a card to the enemy it will be attacked\n\tif you place the fighter to the enemy it will also be attacked.\nYou can only attack the enemy with your fielded cards and your fighter.\nThe cards you can place and the amount of times you can attack are limited in one round.\nYou have to tap the next button the get into the next round."</string>
 </resources>
