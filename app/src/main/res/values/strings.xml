@@ -16,7 +16,7 @@
     <string name="login_empty">Username or password is empty</string>
     <string name="login_failed">Login failed</string>
     <string name="next">Select fighter</string>
-    <string name="select_fighter">Choose a fighter</string>
+    <string name="select_fighter">Choose a fighter from the list</string>
     <string name="other">Other settings</string>
     <string name="settings_title">Advanced</string>
     <string name="email_title">Email notification</string>
@@ -67,4 +67,5 @@
     <string name="success">New user created successfully</string>
     <string name="already_attacked">You have already attacked with your fighter</string>
     <string name="how_to_play">"How to play\nYou have to put a card from your hand to the field.\nFirst you have to select a card:\n\ttap on the card to select it and tap on the field to place it there\n\tif you place a card on the enemy it will be attacked\n\tif you place the fighter on the enemy it will also be attacked.\nYou can only attack the enemy with your fielded cards and your fighter.\nThe cards you can place and the amount of times you can attack are limited in one round.\nYou have to tap the next button the get into the next round."</string>
+    <string name="you_banned">You are banned and cannot log in.</string>
 </resources>

@@ -166,5 +166,6 @@
         android:layout_height="match_parent"
         android:layout_weight="0"
         android:text="@string/how_to_play"
+        android:padding="10dp"
         android:visibility="gone"/>
 </androidx.appcompat.widget.LinearLayoutCompat>

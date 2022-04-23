@@ -10,7 +10,7 @@
     <string name="profile_settings">Felhasználói beállítások</string>
     <string name="signature_title">Aláírás</string>
     <string name="next">Harcos kiválasztása</string>
-    <string name="select_fighter">Válassz harcost</string>
+    <string name="select_fighter">Válassz harcost a listából</string>
     <string name="other">Egyéb beállítások</string>
     <string name="action_settings">Fiók beállítások</string>
     <string name="email_on">Küldj értesítő e-maileket a játék  frissítésiről, híreiről</string>
@@ -66,4 +66,5 @@
     <string name="success">Új felhasználó sikeresen létrehozva</string>
     <string name="already_attacked">Már támadtál a harcosoddal</string>
     <string name="how_to_play">"A játék menete\nLe kell tenned egy kártyát a kezedből a játékmezőre. \nElőször ki kell választanod egy kártyát:\n\térints meg egy kártyát a kiválasztáshoz és tedd a mezőre\\n\\tha az ellenfélre teszed a kártyád, az meg lesz támadva\n\tha az ellenfélre teszed a harcost szintén meg lesz támadva. \nCsak a mezőn lévő kártyákkal és a harcosoddal tudod megtámadni az ellenfelet.\nA kártyák amiket lethetsz és a támadások száma le van korlátozva egy körben.\nA következő gombra kell kattintanod, hogy a követező körbe lépj."</string>
+    <string name="you_banned">Ki vagy tiltva és nem léphetsz be.</string>
 </resources>

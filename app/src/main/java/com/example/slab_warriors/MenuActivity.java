@@ -44,9 +44,11 @@ public class MenuActivity extends AppCompatActivity {
                 sharedPref = getSharedPreferences("settings", Context.MODE_PRIVATE);
                 editor = sharedPref.edit();
                 editor.putBoolean("remember", false);
+                editor.putString("name", "");
                 editor.commit();
                 User.loggedInUser = null;
                 startActivity(new Intent(MenuActivity.this, LoginActivity.class));
+                finish();
             });
             builder.setNegativeButton(getString(R.string.no), (dialog, which) -> dialog.cancel());
             builder.setCancelable(false);

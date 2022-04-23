@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import com.example.slab_warriors.api.RequestTask;
-import com.example.slab_warriors.api.Response;
 import com.example.slab_warriors.data.User;
 import com.example.slab_warriors.databinding.ActivityLoginBinding;
 import com.google.gson.Gson;
@@ -42,20 +41,20 @@ public class LoginActivity extends AppCompatActivity {
                 userTask.execute();
                 userTask.setFinalTask(()-> {
                     currentUser = User.getUser(userTask.response.getContent(),name);
-                    if (currentUser == null) {
+                    if (currentUser == null || loginUser.response.getResponseCode()>=400) {
+                        if (currentUser.isBanned()){
+                            loginError(getString(R.string.you_banned));
+                            onRestart();
+                            return;
+                        }
                         loginError(getString(R.string.login_invalid));
-                        onRestart();
-                        return;
-                    }
-                    if (loginUser.response.getResponseCode()>=400){
-                        loginError(convert.fromJson(loginUser.response.getContent(), Response.class).getContent());
                         onRestart();
                         return;
                     }
                     sharedPref = getSharedPreferences("settings", Context.MODE_PRIVATE);
                     editor = sharedPref.edit();
                     editor.putBoolean("remember", binding.rememberCheckBox.isChecked());
-                    editor.putString("username", User.loggedInUser.getUsername());
+                    editor.putString("name", User.loggedInUser.getUsername());
                     editor.commit();
                     Intent toMenu = new Intent(LoginActivity.this, MenuActivity.class);
                     toMenu.putExtra("welcome", getString(R.string.welcome)+" "+User.loggedInUser.getUsername()+ "!");
@@ -74,7 +73,6 @@ public class LoginActivity extends AppCompatActivity {
         binding.rememberCheckBox.setChecked(false);
     }
     private void loginError(String error) {
-        if (error.isEmpty()) error = "We ran into some problems";
         binding.loginOrRegister.setText(getString(R.string.login_failed));
         binding.error.setText(error);
         binding.userName.setText("");

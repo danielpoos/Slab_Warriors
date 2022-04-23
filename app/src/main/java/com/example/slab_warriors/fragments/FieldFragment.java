@@ -156,6 +156,7 @@ public class FieldFragment extends Fragment {
     }
     private void interactWithEnemy() {
         if(fighterSelected && !fighterAttacked){
+            binding.fighterImage.startAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.hit_left));
             boss.setHp(boss.getHp()-fighter.getAttack());
             binding.enemyImage.startAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.shake));
             theBossHasNoHp();
@@ -168,11 +169,10 @@ public class FieldFragment extends Fragment {
             Toast.makeText(getContext(), getString(R.string.cant_attack), Toast.LENGTH_SHORT).show();
         }else if(fieldedCardAdapter.cardPosition != -1){
             enemyGetAttacked++;
-            boss.setHp(boss.getHp()-fieldedCardList.get(fieldedCardAdapter.cardPosition).getAttack());
             binding.enemyImage.startAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.shake));
+            boss.setHp(boss.getHp()-fieldedCardList.get(fieldedCardAdapter.cardPosition).getAttack());
             theBossHasNoHp();
             fieldedCardAdapter.cardPosition = -1;
-            //animation
         }else if (cardAdapter.cardPosition != -1){
             cardAdapter.cardPosition = -1;
             Toast.makeText(getContext(), getString(R.string.no_card_selected), Toast.LENGTH_SHORT).show();
@@ -198,9 +198,10 @@ public class FieldFragment extends Fragment {
         binding.enemyHealth.setProgress(boss.getHp());
     }
     private void attackTheFighter(){
-        binding.fighterImage.startAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.shake));
+        binding.enemyImage.startAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.hit_right));
         fighter.setHp(fighter.getHp()-boss.getAttack());
         binding.fighterHealth.setText(fighter.getHp()+"");
+        binding.fighterImage.startAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.shake));
         if (fighter.getHp() <= 0){
             fighter.setHp(0);
             sharedPreference = getContext().getSharedPreferences("winlose", Context.MODE_PRIVATE);
@@ -221,6 +222,7 @@ public class FieldFragment extends Fragment {
             attackTheFighter();
             return;
         }
+        binding.enemyImage.startAnimation(AnimationUtils.loadAnimation(getContext(), R.anim.hit_down));
         Random r = new Random();
         int randomInt = r.nextInt(fieldedCardList.size());
         Card attackedCard = fieldedCardList.get(randomInt);
@@ -228,7 +230,7 @@ public class FieldFragment extends Fragment {
         fieldedCardAdapter.notifyItemChanged(randomInt);
         if (attackedCard.getHp()<0){
             try {
-                Thread.sleep(650);
+                Thread.sleep(450);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
