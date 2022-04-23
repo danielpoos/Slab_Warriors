@@ -1,5 +1,6 @@
 <resources>
     <string name="app_name" translatable="false">Slab Warriors</string>
+    <string name="baseurl" translatable="false">http://192.168.1.94:8000</string>
     <string name="play">Play</string>
     <string name="characters">Characters</string>
     <string name="settings">Settings</string>
@@ -65,5 +66,5 @@
     <string name="not_matching_passwords">Passwords are not matching</string>
     <string name="success">New user created successfully</string>
     <string name="already_attacked">You have already attacked with your fighter</string>
-    <string name="how_to_play">"How to play\nYou have to put a card from your hand to the field.\nFirst you have to select a card:\n\ttap on the card to select it and tap on the field to place it there\n\tif you place a card to the enemy it will be attacked\n\tif you place the fighter to the enemy it will also be attacked.\nYou can only attack the enemy with your fielded cards and your fighter.\nThe cards you can place and the amount of times you can attack are limited in one round.\nYou have to tap the next button the get into the next round."</string>
+    <string name="how_to_play">"How to play\nYou have to put a card from your hand to the field.\nFirst you have to select a card:\n\ttap on the card to select it and tap on the field to place it there\n\tif you place a card on the enemy it will be attacked\n\tif you place the fighter on the enemy it will also be attacked.\nYou can only attack the enemy with your fielded cards and your fighter.\nThe cards you can place and the amount of times you can attack are limited in one round.\nYou have to tap the next button the get into the next round."</string>
 </resources>

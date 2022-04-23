@@ -12,7 +12,6 @@ import com.google.gson.Gson;
 
 public class RegisterActivity extends AppCompatActivity {
     private ActivityRegisterBinding binding;
-    private final String userUrl = "http://192.168.1.94:8000/api/users/register";
     private String name;
     private String email;
     private String pass;
@@ -41,7 +40,7 @@ public class RegisterActivity extends AppCompatActivity {
             }
             else{
                 Gson convert = new Gson();
-                RequestTask registerUser = new RequestTask(userUrl,"post",convert.toJson(new User(name, email, pass, passAgain), User.class));
+                RequestTask registerUser = new RequestTask(getString(R.string.baseurl)+"/api/users/register","post",convert.toJson(new User(name, email, pass, passAgain), User.class));
                 registerUser.execute();
                 registerUser.setFinalTask(()->{
                     if (registerUser.response.getResponseCode()>=400){

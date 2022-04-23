@@ -15,8 +15,6 @@ public class LoginActivity extends AppCompatActivity {
     private ActivityLoginBinding binding;
     private SharedPreferences sharedPref;
     private SharedPreferences.Editor editor;
-    private final String userUrl = "http://192.168.1.94:8000/api/users";
-    private final String loginUrl = userUrl+"/login";
     private User currentUser;
     private String name;
     private String pass;
@@ -37,10 +35,10 @@ public class LoginActivity extends AppCompatActivity {
                 return;
             }
             Gson convert = new Gson();
-            RequestTask loginUser = new RequestTask(loginUrl,"post", convert.toJson(new User(name,pass), User.class));
+            RequestTask loginUser = new RequestTask(getString(R.string.baseurl)+"/api/users/login","post", convert.toJson(new User(name,pass), User.class));
             loginUser.execute();
             loginUser.setFinalTask(()->{
-                RequestTask userTask = new RequestTask(userUrl,"get");
+                RequestTask userTask = new RequestTask(getString(R.string.baseurl)+"/api/users","get");
                 userTask.execute();
                 userTask.setFinalTask(()-> {
                     currentUser = User.getUser(userTask.response.getContent(),name);

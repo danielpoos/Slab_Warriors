@@ -41,8 +41,6 @@ public class FieldFragment extends Fragment {
     private Fighter fighter;
     private boolean fighterSelected = false;
     private boolean fighterAttacked = false;
-    private final String cardUrl = "http://192.168.1.94:8000/api/cards";
-    private final String enemyUrl = "http://192.168.1.94:8000/api/enemy";
     public FieldFragment(){}
     @Override public View onCreateView(LayoutInflater inflater,ViewGroup container,Bundle savedInstanceState) {
         binding = FragmentFieldBinding.inflate(inflater, container, false);
@@ -94,7 +92,7 @@ public class FieldFragment extends Fragment {
         });
     }
     private void initiateCards() {
-        RequestTask cardTask = new RequestTask(cardUrl,"get");
+        RequestTask cardTask = new RequestTask(getContext().getString(R.string.baseurl)+"/api/cards","get");
         cardTask.execute();
         cardTask.setFinalTask(() -> {
             cardList = Card.getCards(cardTask.response.getContent());
@@ -103,7 +101,7 @@ public class FieldFragment extends Fragment {
         });
     }
     private void initiateEnemy() {
-        RequestTask enemyTask = new RequestTask(enemyUrl,"get");
+        RequestTask enemyTask = new RequestTask(getContext().getString(R.string.baseurl)+"/api/enemy","get");
         enemyTask.execute();
         enemyTask.setFinalTask(() -> {
             Enemy.getEnemies(enemyTask.response.getContent());

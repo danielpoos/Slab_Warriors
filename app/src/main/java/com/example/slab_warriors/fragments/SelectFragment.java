@@ -28,7 +28,6 @@ public class SelectFragment extends Fragment{
     private List<Fighter> fighterList;
     private SharedPreferences sharedPreferences;
     private SharedPreferences.Editor sharedEditor;
-    private final String fighterUrl = "http://192.168.1.94:8000/api/fighters";
     @Override public View onCreateView(LayoutInflater inflater,ViewGroup container,Bundle savedInstanceState) {
         binding = FragmentSelectBinding.inflate(inflater, container, false);
         return binding.getRoot();
@@ -41,7 +40,7 @@ public class SelectFragment extends Fragment{
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
         binding.fighteRView.setLayoutManager(layoutManager);
-        RequestTask fighterTask = new RequestTask(fighterUrl,"get");
+        RequestTask fighterTask = new RequestTask(getContext().getString(R.string.baseurl)+"/api/fighters","get");
         fighterTask.execute();
         fighterTask.setFinalTask(() -> {
             fighterList = Fighter.getFighters(fighterTask.response.getContent());

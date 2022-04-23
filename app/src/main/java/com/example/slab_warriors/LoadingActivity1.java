@@ -11,7 +11,6 @@ import com.example.slab_warriors.data.User;
 
 public class LoadingActivity1 extends AppCompatActivity {
     private SharedPreferences sharedPref;
-    private final String userUrl = "http://192.168.1.94:8000/api/users";
     @Override protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loading1);
@@ -25,7 +24,7 @@ public class LoadingActivity1 extends AppCompatActivity {
             String username = sharedPref.getString("username", "");
             if (isLoggedIn) {
                 if (!username.equals("")){
-                    RequestTask getUserInsteadLogin = new RequestTask(userUrl, "get");
+                    RequestTask getUserInsteadLogin = new RequestTask(getString(R.string.baseurl)+"/api/users", "get");
                     getUserInsteadLogin.execute();
                     getUserInsteadLogin.setFinalTask(() -> {
                         User.getUser(getUserInsteadLogin.response.getContent(),username);

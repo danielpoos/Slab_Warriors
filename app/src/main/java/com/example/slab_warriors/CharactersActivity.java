@@ -21,12 +21,6 @@ public class CharactersActivity extends AppCompatActivity {
     private CardAdapter cardAdapter;
     private EnemyAdapter enemyAdapter;
     private FighterAdapter fighterAdapter;
-    private final String cardUrl = "http://192.168.1.94:8000/api/cards";
-    private final String enemyUrl = "http://192.168.1.94:8000/api/enemy";
-    private final String fighterUrl = "http://192.168.1.94:8000/api/fighters";
-    //private final String cardUrl = "http://10.4.18.17:8000/api/cards";
-    //private final String enemyUrl = "http://10.4.18.17:8000/api/enemy";
-    //private final String fighterUrl = "http://10.4.18.17:8000/api/fighters";
     private List<Card> cardList;
     private List<Enemy> enemyList;
     private List<Fighter> fighterList;
@@ -62,21 +56,21 @@ public class CharactersActivity extends AppCompatActivity {
             binding.enemyRView.setVisibility(View.GONE);
             binding.fighterRView.setVisibility(View.VISIBLE);
         });
-        RequestTask cardTask = new RequestTask(cardUrl,"get");
+        RequestTask cardTask = new RequestTask(getString(R.string.baseurl)+"/api/cards","get");
         cardTask.execute();
         cardTask.setFinalTask(() -> {
             cardList = Card.getCards(cardTask.response.getContent());
             cardAdapter = new CardAdapter(this,cardList);
             binding.cardRView.setAdapter(cardAdapter);
         });
-        RequestTask enemyTask = new RequestTask(enemyUrl,"get");
+        RequestTask enemyTask = new RequestTask(getString(R.string.baseurl)+"/api/enemy","get");
         enemyTask.execute();
         enemyTask.setFinalTask(() -> {
             enemyList = Enemy.getEnemies(enemyTask.response.getContent());
             enemyAdapter = new EnemyAdapter(this,enemyList);
             binding.enemyRView.setAdapter(enemyAdapter);
         });
-        RequestTask fighterTask = new RequestTask(fighterUrl,"get");
+        RequestTask fighterTask = new RequestTask(getString(R.string.baseurl)+"/api/fighters","get");
         fighterTask.execute();
         fighterTask.setFinalTask(() -> {
             fighterList = Fighter.getFighters(fighterTask.response.getContent());
