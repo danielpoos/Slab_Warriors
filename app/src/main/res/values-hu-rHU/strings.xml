@@ -67,4 +67,5 @@
     <string name="already_attacked">Már támadtál a harcosoddal</string>
     <string name="how_to_play">"A játék menete\nLe kell tenned egy kártyát a kezedből a játékmezőre. \nElőször ki kell választanod egy kártyát:\n\térints meg egy kártyát a kiválasztáshoz és tedd a mezőre\\n\\tha az ellenfélre teszed a kártyád, az meg lesz támadva\n\tha az ellenfélre teszed a harcost szintén meg lesz támadva. \nCsak a mezőn lévő kártyákkal és a harcosoddal tudod megtámadni az ellenfelet.\nA kártyák amiket lethetsz és a támadások száma le van korlátozva egy körben.\nA következő gombra kell kattintanod, hogy a követező körbe lépj."</string>
     <string name="you_banned">Ki vagy tiltva és nem léphetsz be.</string>
+    <string name="register_already">Felhasználónév vagy email már használatban van</string>
 </resources>

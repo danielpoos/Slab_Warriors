@@ -68,4 +68,5 @@
     <string name="already_attacked">You have already attacked with your fighter</string>
     <string name="how_to_play">"How to play\nYou have to put a card from your hand to the field.\nFirst you have to select a card:\n\ttap on the card to select it and tap on the field to place it there\n\tif you place a card on the enemy it will be attacked\n\tif you place the fighter on the enemy it will also be attacked.\nYou can only attack the enemy with your fielded cards and your fighter.\nThe cards you can place and the amount of times you can attack are limited in one round.\nYou have to tap the next button the get into the next round."</string>
     <string name="you_banned">You are banned and cannot log in.</string>
+    <string name="register_already">Username or email is already in use</string>
 </resources>

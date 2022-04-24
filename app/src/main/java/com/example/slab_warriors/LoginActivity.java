@@ -41,7 +41,12 @@ public class LoginActivity extends AppCompatActivity {
                 userTask.execute();
                 userTask.setFinalTask(()-> {
                     currentUser = User.getUser(userTask.response.getContent(),name);
-                    if (currentUser == null || loginUser.response.getResponseCode()>=400) {
+                    if (currentUser == null){
+                        loginError(getString(R.string.login_invalid));
+                        onRestart();
+                        return;
+                    }
+                    if (loginUser.response.getResponseCode()>=400) {
                         if (currentUser.isBanned()){
                             loginError(getString(R.string.you_banned));
                             onRestart();

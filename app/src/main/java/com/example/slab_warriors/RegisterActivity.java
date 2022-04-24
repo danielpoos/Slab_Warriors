@@ -44,7 +44,7 @@ public class RegisterActivity extends AppCompatActivity {
                 registerUser.execute();
                 registerUser.setFinalTask(()->{
                     if (registerUser.response.getResponseCode()>=400){
-                        registerError(convert.fromJson(registerUser.response.getContent(), Response.class).getContent());
+                        registerError(getString(R.string.register_already));
                         onRestart();
                         return;
                     }
