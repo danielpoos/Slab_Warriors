@@ -1,12 +1,10 @@
-# Slab_Warriors
+# Slab Warriors
 Mobile version of our game
 
-Project update: updated the java, xml and gradle files
+made by Poós Dániel
 
-- `FieldFragment` has now pictures
-- Also got refactored
-- Created and tested `RegisterActivity`
-- Updated `SettingsActivity`, `LoadingActivity` and `LoginActivity`
-- Added some *SharedPreferences*
-- Updated some `xml` files, for the better visuals
-- Updated the data classes, `Adapters` and `Fragments`
+## Backend 
+Link to the [backend](https://github.com/pivarcsi-gergely/slabackend)
+
+## Documentation
+Link to our [documentation](https://docs.google.com/document/d/1402N2EjcMnzjCcaw5d_oRT4_ZYVZMcyKTWUovhdAM4Y)
